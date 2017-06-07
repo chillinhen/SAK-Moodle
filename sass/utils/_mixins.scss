@@ -1,0 +1,13 @@
+@mixin active-style {
+	background:$brand-primary;
+    background-image:none !important;
+	color:$white;
+}
+@mixin headline-style ($weight,$mg-top, $mg-bottom){
+    font-family:$headings-font-family;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    font-weight:$weight;
+    margin-top: $mg-top;
+    margin-bottom: $mg-bottom;
+}

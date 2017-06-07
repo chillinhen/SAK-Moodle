@@ -1,0 +1,66 @@
+/** Main Logo ***/
+#page-header {
+	body#page-site-index &{
+		position: relative;
+		
+		padding-top: 1em;
+		margin-bottom:1em;
+		height: 0;
+		width:23%;
+		overflow: hidden;
+		@media screen and (max-width:425px){
+		    width:100%;
+		    padding-bottom: 55%; /* ratio width/height*/
+		}
+		@media screen and (min-width:425px){
+		    width:23%;
+		    padding-bottom: 11.5%; /* ratio width/height*/
+		}
+		
+		.logo {
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    background-size:contain;
+		}
+	}
+
+}
+
+/*** Topics ***/
+.topics {
+	li {
+		margin-bottom: 2em;
+		padding-top: 20px;
+	}
+}
+
+/*** Course Links/Headlines ***/
+.modtype_label {
+.section &.activity.label{
+	@extend h3;
+	border-bottom:1px solid $border-color;
+	margin-bottom:.7em;
+	
+	p:last-child{margin-bottom:0;}
+	
+	b{font-weight:600;}
+	}
+}
+
+.mod-indent-outer{
+	.section .label &{
+		padding-left:0;
+	}
+}
+.mod-indent-1,
+.mod-indent-2{
+width:0;
+}
+
+/*** Navigation ***/
+.block_navigation .block_tree .tree_item{
+background-position: 0 0;
+}

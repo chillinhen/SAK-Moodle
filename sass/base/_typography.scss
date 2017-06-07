@@ -1,0 +1,121 @@
+/* =============================================================================
+   Mixins
+   ========================================================================== */
+%main-headline-style-h3{
+    font-size: 1.429em;
+/*    @media screen and (min-device-width:$screen-lg){
+        font-size: 1.43vW;
+    }*/
+    @media screen and (max-device-width:$screen-xs) and (orientation:portrait){
+        font-size:1.2em;
+    }
+    line-height: 1.2;
+    margin-top:1em;
+    margin-bottom: 0.5em;
+}
+
+/* =============================================================================
+   Basics
+   ========================================================================== */
+
+html { font-size: 62.5%; -webkit-text-size-adjust: auto; -ms-text-size-adjust: auto;}
+
+html, body, button, input, select, textarea { 
+    font-family:$body-font-family;
+    color: $text-color; }
+
+body {
+    text-rendering: optimizeLegibility;
+    font-size:$rem-base;
+    font-weight:400;
+    line-height: $base-line-height;
+}
+a{
+	&, &:link{
+	text-decoration: none;
+	cursor:pointer;
+	}
+	&:visited{
+	    opacity:.5;
+	}
+	&:hover,&:focus {outline:none;}
+}
+    
+h1,h2,h3,h4, legend{
+    @include headline-style (400, 0, 1em);
+    line-height: 1.1;
+    color: $heading-text-color;
+
+    a{
+        text-decoration: none;
+        color: $brand-primary;
+    }
+}
+h1, h2, h3 {
+    a{
+        &:hover{
+            text-decoration:none;
+            cursor:pointer;
+        }
+    }
+}
+
+// different font-sizes
+h1 {
+    font-size:1.5 * $rem-base;
+    line-height: 1;
+    color: #000;
+    @media screen and (max-width:$screen-xs){
+        font-size:2em;
+    }
+}
+h2 {
+    font-size:2.143 * $rem-base;
+    line-height: 1;
+    @media screen and (max-width:$screen-xs){
+        font-size:1.5em;
+    }
+}
+h3 {
+    @extend %main-headline-style-h3 !optional;
+}
+h4,.h4,h5,.h5,h6,.h6 {
+    font-size: 1.2em;
+}
+legend {
+    border{
+        width:1px 0 0 0;
+        style:solid;
+        color:$border-color;
+        margin-top:1em;
+    }
+}
+// paragraph text
+p {
+    margin: 0 0 $paragraph-margin;
+    font-family: inherit;
+    font-size: $rem-base;
+    font-weight: normal;
+    line-height: $base-line-height;
+    text-transform:none;
+
+
+    &.lead {
+/*        font-size: 1rem * 1.125;*/
+        font-size:1em;
+        line-height: 1.4;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

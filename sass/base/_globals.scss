@@ -1,0 +1,14 @@
+::-moz-selection { 
+    text-shadow: none;
+    @include active-style;
+}
+::selection { 
+    text-shadow: none;
+    @include active-style;
+}
+   
+   
+.essay div[title='Spell-check'] {
+ display:none;
+ }
+ 
