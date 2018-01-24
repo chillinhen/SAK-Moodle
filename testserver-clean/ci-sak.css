@@ -1,0 +1,131 @@
+.essay div[title='Spell-check'] {
+ display:none;
+ }
+::-moz-selection {
+  text-shadow: none;
+  background: #2466a8;
+  background-image: none !important;
+  color: #fff; }
+
+::selection {
+  text-shadow: none;
+  background: #2466a8;
+  background-image: none !important;
+  color: #fff; }
+html {
+  font-size: 62.5%;
+  -webkit-text-size-adjust: auto;
+  -ms-text-size-adjust: auto; }
+
+html, body, button, input, select, textarea {
+  font-family: "Ubuntu", Arial, Helvetica, sans-serif;
+  color: #333; }
+
+body {
+  text-rendering: optimizeLegibility;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%; }
+
+strong, b{font-weight:700;}
+
+a, a:link {
+  color:#2466a8;
+  text-decoration: none;
+  cursor: pointer; }
+a:visited {
+  opacity: .5; }
+a:hover, a:focus {
+  outline: none; }
+
+h1, h2, h3, h4, legend
+/*.section .modtype_label.activity.label*/ {
+  font-family: "Titillium Web", Arial, Helvetica, sans-serif !important;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #2466a8; }
+  h1 a, h2 a, h3 a, .section .modtype_label.activity.label a, h4 a, legend a {
+    text-decoration: none;
+    color: #2466a8; }
+
+h1 a:hover, h2 a:hover, h3 a:hover, .section .modtype_label.activity.label a:hover {
+  text-decoration: none;
+  cursor: pointer; }
+
+h1 {
+  font-size: 21px;
+  line-height: 1;
+  color: #000; }
+  @media screen and (max-width: 480px) {
+    h1 {
+      font-size: 2em; } }
+
+h2 {
+  font-size: 30.002px;
+  line-height: 1; }
+  @media screen and (max-width: 480px) {
+    h2 {
+      font-size: 1.5em; } }
+
+h4, .h4, h5, .h5, h6, .h6 {
+  font-size: 1.2em; }
+/***/
+#page-my-index #region-main{
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+/*        width: 50%;
+    margin: 0 25%;
+    background-color: rgba(255,255,255,0.7);*/
+}
+.logo{
+    height: 125px !important;
+    margin: 0 0 1em 0 !important;
+    width: 100%;
+    background-size:contain !important;
+    
+    float:none;
+}
+#page-login-index .logo {
+    background-position: top center !important;
+}
+#page-login-index,
+#page-site-index {
+     background-image: url("http://stock.clients.overflow-hillen.de/wp-content/uploads/sites/15/2017/09/weltkarte.png");
+     background-repeat: no-repeat;
+     background-position: top center;
+     background-attachment: fixed;
+}
+#page-header .card {
+    height: 225px;
+    background-size: cover;
+    background-position: 50% 100%;
+}
+#page-login-index .card {
+    background-color:rgba(255,255,255,0.85);
+}
+#page-header .page-header-headings{
+    background:#2466a8;
+    display:inline-block;
+    padding-left:1em;
+    padding-right: 1em;
+    border-radius: 3px;
+}
+#page-header .page-header-headings *{
+    color:#fff;
+}
+#page-footer{
+    background:#2466a8;
+}
+#page-footer *{
+    color:#fff;
+}
+.userpicture {
+    border-radius: 50%;
+}
+.course-content .current{
+    background-color:#eee;
+}
+.label-info, .badge-info{background:#2466a8;}

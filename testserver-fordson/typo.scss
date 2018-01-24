@@ -1,0 +1,40 @@
+$base-font-size:            100% !default;
+$base-line-height:          150% !default;
+$rem-base:                  14px !default;
+
+$paragraph-margin:          1rem;
+
+$headings-font-family:    'Titillium Web', Arial,Helvetica, sans-serif !important;
+$body-font-family:        'Ubuntu', Arial,Helvetica, sans-serif; 
+
+$heading-text-color:        $brand-primary;
+$text-color:                #333;
+$body-text-color:           $text-color;
+$text-muted-color:          lighten($text-color,25%);
+
+/*************************** Import section  *****************************/
+// Always the same.
+@import "moodle";
+
+/* =============================================================================
+   Basics
+   ========================================================================== */
+
+html { font-size: 62.5%; -webkit-text-size-adjust: auto; -ms-text-size-adjust: auto;}
+
+html, body, button, input, select, textarea { 
+    font-family:$body-font-family;
+    color: $text-color; }
+// body typography
+body {
+    text-rendering: optimizeLegibility;
+    font-size:$rem-base;
+    font-weight:400;
+    line-height: $base-line-height;
+}
+h1,h2,h3,h4{
+    color: $heading-text-color;
+    font-family:$headings-font-family;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+}

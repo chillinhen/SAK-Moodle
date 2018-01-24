@@ -1,0 +1,31 @@
+.card{
+        background-color:rgba(255,255,255,0.85);
+        #page-login-index &{}
+    }
+.headerbkg{
+    box-shadow: none;
+}
+#nav-drawer{
+    background: rgba(36, 101, 168, 0.46);
+}
+.page-header-image{
+    border-radius: 50%;
+}
+.class-box-fp{
+    background-color:#fff !important;
+    padding:0;
+    .course-title{
+/*        background-color:#2466A6;
+        *{
+            color:#fff;
+        }*/
+    }
+}
+.alert-info, #page-admin-index .releasenoteslink, #adminsettings .form-overridden, .que .formulation{
+    /*background-color: #fff6ae;*/
+    a {
+        padding:0 .2em;
+        background:#2466A6;
+        color:white;
+    }
+}

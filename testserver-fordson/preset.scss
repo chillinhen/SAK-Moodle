@@ -1,0 +1,489 @@
+// An example preset file.
+
+/*************************** Variables section. *****************************/
+// Create variables to override the default value for variables used in the Moodle and Bootstrap SCSS files.
+
+/*Colors*/
+$brand-primary:#2466a8;
+$brand-secondary: #4385c8;
+$text-color:#333;
+$light-text-color:#999;
+$light-gray:#ccc;
+$dark-gray:darken($light-gray,50%);
+$link-color:$brand-primary;
+$border-color:$light-gray;
+$mainBg:#F2F2F2;
+/*************************** Typo  *****************************/
+$base-font-size:            100% !default;
+$base-line-height:          150% !default;
+$rem-base:                  14px !default;
+
+$paragraph-margin:          1rem;
+
+$headings-font-family:    'Titillium Web', Arial,Helvetica, sans-serif !important;
+$body-font-family:        'Ubuntu', Arial,Helvetica, sans-serif; 
+
+$heading-text-color:        $brand-primary;
+$text-color:                #333;
+$body-text-color:           $text-color;
+$text-muted-color:          lighten($text-color,25%);
+
+
+/* Margins & Paddings */
+$outer-grid:2 * $rem-base;
+$vertical-spacing:2*$rem-base;
+$card-padding:1rem;
+
+@mixin icon-style{
+    color: #000;
+    display: block;
+    float: left;
+    font-family: FontAwesome;
+    margin-right: .5rem;
+    text-align: left;
+    border-radius: 0;
+    background-color:transparent;
+    margin-top:0;
+}
+@mixin flexbox{
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; 
+    display: flex;
+}
+@mixin flex($item){
+    -webkit-box-flex: $item;   /* OLD - iOS 6-, Safari 3.1-6 */         /* For old syntax, otherwise collapses. */
+    -webkit-flex: $item;       /* Safari 6.1+. iOS 7.1+, BB10 */
+    -ms-flex: $item;           /* IE 10 */
+    flex: $item;
+}
+@mixin shadow {
+    -webkit-box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
+}
+/*************************Global extends ****************/
+.ellipsis {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 33%;
+        word-wrap: break-word;
+        display:block;
+    }
+/*************************** Import section  *****************************/
+// Always the same.
+@import "moodle";
+
+/*************************** some resets  *****************************/
+.class-box-fp .course-title:after{
+    display:none;
+}
+
+/*************************** Globals ****************************/
+/**{
+    color:red !important;
+}*/
+body {
+    background: $mainBg;
+}
+.card{
+    border:0;
+}
+.media-left{display:none;}
+.customimage{
+    background-size: 70% auto !important;
+    background-position: top center !important;
+    background-repeat: no-repeat;
+    opacity: .5;
+}
+.headerbkg{
+    box-shadow: none !important;
+}
+div#coursecontrols{
+    border:0;
+    top: -41px;
+}
+button.btn{
+    background: $brand-primary;
+    color:white;
+    &.btn-secondary{
+        background: $brand-secondary; 
+    }
+}
+/*** Grid ***/
+/*.frontpage-course-list-all .row,
+.iconset,
+.topics .activity a{
+    
+    > *{
+                
+    }
+}*/
+.row{
+    .frontpage-course-list-all &,.markettiles &{
+        @include flexbox;
+        [class*="col-"]{
+            @include flex(1);
+        }
+        @media screen and (max-width:1024px){
+            flex-direction:column;
+            [class*="col-"]{
+                /*Reset org style **/
+                float:none;
+                width:100%;
+            }
+        }
+        @media screen and (min-width:1025px){
+            flex-direction:row;  
+        }
+
+    }
+}
+.topics .activity a{
+    @include flexbox;
+}
+
+.frontpage-course-list-all .row {
+    .class-box-fp,
+    .market-tile{
+        position:relative;
+        padding:0 !important;
+        .course-title{
+            position:absolute;
+            bottom:0;
+            width:100%;
+            padding:$card-padding;
+            background:$mainBg;
+        }
+    }
+}
+.card-title,.course-title h4{
+    text-transform:none;
+    font-size: calc(1rem + 1vmin);
+    word-wrap: break-word;
+    text-align:left;
+}
+
+.marketcontent{
+    padding:0;
+    position:relative;
+    .btn{
+        width: 100%;
+        display:block;
+    }
+}
+.text_to_html{
+    .card-title & {
+        min-height:50px;
+        padding-bottom:2*$card-padding;
+    }
+    .marketcontent > &{
+       position:absolute;
+        bottom:0;
+        width:100%;
+        padding:$card-padding;
+        background:rgba(255,255,255,.85);
+        color:$text-color; 
+    }
+}
+
+[class*="col-"]{
+    padding-left:$card-padding;
+    padding-right:$card-padding;
+    
+    .class-box-fp,
+    .market-tile{
+        @include shadow;
+        border:0 !important;
+        margin:$card-padding;
+    }
+    .marketcontent[class*="image"]{
+        margin: 0 -$card-padding;
+        height: 200px;
+        
+    } 
+}
+/* =============================================================================
+   icons
+   ========================================================================== */
+.fpstart{
+    text-align: left;
+
+}
+/*.iconset{
+    .fpiconcreate,
+    .fpicon {
+        @include flex(1);
+        background:transparent;
+        margin:0;
+        width:auto;
+        border-left:1px solid $border-color;
+        *{
+            color:$brand-primary;
+        }
+        .fa{
+            font-size:2em !important;
+        }
+    }
+    .fpicon:first-child{
+        border:0;
+    }
+}*/
+.iconset{
+    @media screen and (max-width:568px){
+        text-align:center;
+    }
+    .fpicon{
+        background:transparent; 
+        *{
+            color:$brand-primary;
+        }
+    }
+}
+[data-key="coursehome"]{
+    font-size:larger;
+    :before{
+        @include icon-style;
+        content: "\f07c";
+    }
+    ~ a{
+        /*        padding-left: 3em;*/
+        &:before{
+            @include icon-style;
+            content: "\f0da";
+        }
+    }
+}
+[data-key="mycourses"]{
+    font-weight: 600;
+    &:before{
+        @include icon-style;
+        content: "\f114";
+    }
+    ~ a{
+        /*        padding-left: 3em;*/
+        &:before{
+            @include icon-style;
+            content: "\f016";
+            font-size:1rem;
+        }
+    }
+}
+[data-key="1"]
+[data-key="participants"],
+[data-key="grades"]{
+    color:$light-text-color !important;
+    &:before{
+        content: " ";
+    }
+}
+/*a[href*="//"]:not([href*="moodle-testing.spraachen.org/"]){
+    &.list-group-item > *:after{
+        display: inline-block;
+        content: "\f08e"; 
+        float:none;
+    }
+    .card-block &:after {
+        @include icon-style;
+        display: inline-block;
+        content: "\f08e";
+        color:$brand-primary;
+        margin-left:.5em;
+    }
+    .fpicon &:after {
+        content:"";
+    }
+}*/
+
+/* =============================================================================
+   Typo
+   ========================================================================== */
+
+html { -webkit-text-size-adjust: auto; -ms-text-size-adjust: auto;}
+
+html, body, button, input, select, textarea { 
+    font-family:$body-font-family;
+    color: $text-color; }
+// body typography
+body {
+    text-rendering: optimizeLegibility;
+    font-size:$rem-base;
+    font-weight:400;
+    line-height: $base-line-height;
+}
+
+a {
+    color: $brand-primary;
+    .navbar-light &,
+    & > span{
+        color: $brand-primary !important;  
+    }
+    &,&:link { 
+        text-decoration: none;
+        cursor:pointer;
+    }
+    &:hover{
+        color: $brand-secondary; 
+        text-decoration: underline;
+    }
+    &:visited{
+        opacity:.5;
+    }
+    &:visited{ 
+        text-decoration: none !important;
+    }
+    &:hover,&:focus {outline:none;}
+
+    /*    &.external:after{
+            @include icon-style ("\f08e", 0, 1, .5em, .8em);
+        }*/
+}
+h1,h2,h3,h4{
+    color: $heading-text-color;
+    font-family:$headings-font-family;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    margin-bottom: $vertical-spacing;
+}
+h1 {
+
+    &, #page-header &{
+        font-weight:400;
+    }
+    .page-header-headings &:before{
+        @include icon-style;
+        content: "\f07c";
+    }
+}
+h3 {
+
+}
+.card-text.content *{
+    font-family:$body-font-family !important;
+}
+/* =============================================================================
+   Menu/Navigation
+   ========================================================================== */
+#nav-drawer{
+    background: rgba(36, 101, 168, 0.46);
+}
+.popover-region i {
+    color:$brand-primary;
+}
+.navbar-light .navbar-brand{
+    background:transparent;
+}
+
+
+/* =============================================================================
+   Paging
+   ========================================================================== */
+
+
+/*** Paging***/
+.section-navigation{
+    &.navigationtitle{
+        @media screen and (max-width:1280px){
+            [class*="mdl-"]{
+                display: none;
+                @extend .ellipsis;
+            }
+        }
+    }
+    &.mdl-bottom{
+        [class*="mdl-"]{
+            display: none;
+        }
+    }
+    .sectionname{
+        margin-top: 1em;
+        border-top: 1px solid #ccc;
+        padding-top: 1em;
+    }
+
+}
+/* =============================================================================
+   Page Content
+   ========================================================================== */
+#page{
+    @media screen and (min-width: 991px){
+        
+    } 
+}
+#region-main{
+    border-right: 1px solid $light-gray;
+    margin-bottom: 2em;
+}
+#page-content {
+    p img {
+        display:inline-block;}
+}
+h3.sectionname:before{
+    @include icon-style;
+    content: "\f0da";
+}
+.course-content .current::before{
+    border-left-width:3px;
+}
+
+
+/* =============================================================================
+   Sidebar
+   ========================================================================== */
+aside[class*="block"] h3:before{
+    background-color:transparent;
+    color:#000;
+    text-align: left;
+    font-size:1.2rem !important;
+}
+
+.block-region .card-block .card-title{
+    padding: 0 0 .2em 0;
+    border-bottom:2px solid $dark-gray;
+    text-transform: none;
+    font-size: 1.4rem;
+    font-weight:400;
+}
+
+/* =============================================================================
+   Dashboards
+   ========================================================================== */
+.dashtitle{
+        background: lighten($light-gray,15%);
+        padding: $card-padding;
+        padding-top: 1em !important;
+        * {color:#fff;}
+        h3 {
+            font-size:1.25em;
+            i.fa{
+                display: none;
+                /*                color:#000;
+                                font-size: smaller;*/
+            }
+        }
+    .teacherdashboard{}
+}
+/* =============================================================================
+Tables
+===============================================================================*/
+.gradeparent{
+    overflow-x:auto;
+}
+/* =============================================================================
+media queries
+===============================================================================*/
+
+#region-main.has-blocks {
+    @media screen and (min-width: 991px){
+        width: calc(100% - 280px);
+    }
+}
+
+/* =============================================================================
+   Shame
+   ========================================================================== */
+/*.col-md-4{
+    border:1px solid red;
+}*/

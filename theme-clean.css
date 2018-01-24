@@ -170,6 +170,10 @@ body#page-site-index #page-header {
   	color: red !important;
   }
 
+
+.text{
+	background: rgba(36, 101, 168, 0.46);
+}
 /*.mod-indent-1,
 .mod-indent-2 {
   width: 0; }*/
