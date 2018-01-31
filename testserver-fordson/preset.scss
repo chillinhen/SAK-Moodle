@@ -68,7 +68,7 @@ $card-padding:1rem;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
-        width: 33%;
+        width: 100%;
         word-wrap: break-word;
         display:block;
     }
@@ -113,21 +113,15 @@ button.btn{
     }
 }
 /*** Grid ***/
-/*.frontpage-course-list-all .row,
-.iconset,
-.topics .activity a{
-    
-    > *{
-                
-    }
-}*/
+
 .row{
     .frontpage-course-list-all &,.markettiles &{
         @include flexbox;
+       
         [class*="col-"]{
             @include flex(1);
         }
-        @media screen and (max-width:1024px){
+        @media screen and (max-width:767px){
             flex-direction:column;
             [class*="col-"]{
                 /*Reset org style **/
@@ -135,8 +129,15 @@ button.btn{
                 width:100%;
             }
         }
-        @media screen and (min-width:1025px){
-            flex-direction:row;  
+        @media screen and (min-width:768px) and (max-width:991px){
+            flex-direction:row;
+           flex-wrap:wrap;
+            [class*="col-"]{
+                /*Reset org style **/
+                float:none;
+/*                width:50% !important;*/
+                flex-basis:50%;
+            }
         }
 
     }
@@ -165,6 +166,14 @@ button.btn{
     word-wrap: break-word;
     text-align:left;
 }
+.course-title h4{
+    @media screen and (min-width:425px) and (max-width:1280px){
+         @extend .ellipsis;
+    height:2.85rem;
+    margin-bottom: 0;
+    }
+
+}
 
 .marketcontent{
     padding:0;
@@ -176,8 +185,11 @@ button.btn{
 }
 .text_to_html{
     .card-title & {
-        min-height:50px;
-        padding-bottom:2*$card-padding;
+        @media screen and (min-width:425px) and (max-width:1280px){
+          @extend .ellipsis;
+          height:2.85rem;
+        }
+        
     }
     .marketcontent > &{
        position:absolute;
@@ -190,20 +202,31 @@ button.btn{
 }
 
 [class*="col-"]{
-    padding-left:$card-padding;
-    padding-right:$card-padding;
-    
+   
     .class-box-fp,
-    .market-tile{
+    .market-tile,
+    .course-info-container{
         @include shadow;
         border:0 !important;
-        margin:$card-padding;
+        margin:{
+                top:$card-padding;
+                left:-$card-padding/3 !important;
+                right:-$card-padding/3 !important;
+                bottom:$card-padding;
+            };
     }
     .marketcontent[class*="image"]{
-        margin: 0 -$card-padding;
-        height: 200px;
-        
+        margin:{
+            top:0;
+            left:-$card-padding;
+            bottom:$card-padding;
+            right:-$card-padding;
+        };
+/*        height: 200px;*/
     } 
+}
+.block_myoverview {
+    overflow:auto !important;
 }
 /* =============================================================================
    icons
@@ -212,25 +235,7 @@ button.btn{
     text-align: left;
 
 }
-/*.iconset{
-    .fpiconcreate,
-    .fpicon {
-        @include flex(1);
-        background:transparent;
-        margin:0;
-        width:auto;
-        border-left:1px solid $border-color;
-        *{
-            color:$brand-primary;
-        }
-        .fa{
-            font-size:2em !important;
-        }
-    }
-    .fpicon:first-child{
-        border:0;
-    }
-}*/
+
 .iconset{
     @media screen and (max-width:568px){
         text-align:center;
@@ -240,6 +245,9 @@ button.btn{
         *{
             color:$brand-primary;
         }
+    }
+    .fpiconcreate{
+        width:120px;
     }
 }
 [data-key="coursehome"]{
@@ -408,8 +416,14 @@ h3 {
    Page Content
    ========================================================================== */
 #page{
-    @media screen and (min-width: 991px){
-        
+    @media screen and (min-width: 991px) and (max-width:1280px){
+        &.container-fluid{
+            padding: 0 1em !important;
+        }
+        @media screen and (min-width: 991px)
+            [data-region="blocks-column"] {
+            width: calc(280px - 150px);
+        }
     } 
 }
 #region-main{
@@ -486,4 +500,4 @@ media queries
    ========================================================================== */
 /*.col-md-4{
     border:1px solid red;
-}*/
+}*/ 
