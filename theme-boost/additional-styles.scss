@@ -1,46 +1,88 @@
-// An example preset file.
-
-/*************************** Variables section. *****************************/
-// Create variables to override the default value for variables used in the Moodle and Bootstrap SCSS files.
-
-$brand-primary:				#2466a8;
-$brand-secondary: 			#4385c8;
-$text-color:				red;
-
-// BACKGROUNDS
-$mainBg:					#F2F2F2;
-$bg-panel:					#e5e5e4;
-$bd-panel: 					#D9D9D9;
-
-$base-font-size:            100% !default;
-$base-line-height:          150% !default;
-$rem-base:                  14px !default;
-
-$paragraph-margin:          1rem;
-
-$headings-font-family:    'Titillium Web', Arial,Helvetica, sans-serif !important;
-$body-font-family:        'Ubuntu', Arial,Helvetica, sans-serif; 
-
-$heading-text-color:        $brand-primary;
-$body-text-color:           $text-color;
-$text-muted-color:          lighten($text-color,25%);
-
-
-/*************************** Import section  *****************************/
-// Always the same.
+// Import everything.
 @import "moodle";
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web|Ubuntu');
-
-
-/*************************** Rules section ****************************/
-html { font-size: 62.5%; -webkit-text-size-adjust: auto; -ms-text-size-adjust: auto;}
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,400i,600,600i|Ubuntu:300,300i,400,400i,500,500i,700,700i');
+/*************************** Globals ****************************/
+/**{
+    color:red !important;
+}*/
+html { -webkit-text-size-adjust: auto; -ms-text-size-adjust: auto;}
 
 html, body, button, input, select, textarea { 
     font-family:$body-font-family;
     color: $text-color; }
+// body typography
 body {
-    background-color: green;
+    text-rendering: optimizeLegibility;
+    font-size:$rem-base;
+    font-weight:400;
+    line-height: $base-line-height;
+    background: $mainBg;
 }
-h1, h2, h3, h4{
-	font-family:$headings-font-family;
+
+/*** Buttons ***/
+button.btn, .btn{
+    background: $brand-primary;
+    #page-content .col-md-4 &, #page-content .col-md-4 & > div {@include truncate(100%);}
+    &.btn-secondary{
+        background: $brand-secondary; 
+    }
+    &, &.btn-default.active{
+        color:white;
+    }
+}
+/*** Headlines ***/
+h1, h2, h3, h4 {
+    font-family:$headings-font-family !important;
+    color: $heading-text-color;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    margin-bottom: $vertical-spacing;
+
+    .bg-inverse &{
+        color: lighten($heading-text-color,100%); 
+    }
+}
+h1 {
+
+    &, #page-header &{
+        font-weight:400;
+    }
+    .page-header-headings &:before{
+        @include icon-style;
+        content: "\f07c";
+    }
+}
+a {
+    color: $brand-primary;
+    .navbar-light &,
+    & > span{
+        color: $brand-primary !important;  
+    }
+    .bg-inverse &{
+        color: lighten($brand-primary,100%) !important; 
+    }
+    &,&:link { 
+        text-decoration: none;
+        cursor:pointer;
+    }
+    &:hover{
+        color: $brand-secondary; 
+        text-decoration: underline;
+    }
+    &:visited{
+        opacity:.5;
+    }
+    &:visited{ 
+        text-decoration: none !important;
+    }
+    &:hover,&:focus {outline:none;}
+
+    /*    &.external:after{
+            @include icon-style ("\f08e", 0, 1, .5em, .8em);
+        }*/
+}
+
+/*** Content ***/
+.card{
+    border:0;
 }

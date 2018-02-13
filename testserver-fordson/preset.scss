@@ -64,14 +64,15 @@ $card-padding:1rem;
     box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
 }
 /*************************Global extends ****************/
-.ellipsis {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        width: 100%;
-        word-wrap: break-word;
-        display:block;
-    }
+@mixin truncate($width) {
+    width: $width;
+    max-width: 100%;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
 /*************************** Import section  *****************************/
 // Always the same.
 @import "moodle";
@@ -105,11 +106,14 @@ div#coursecontrols{
     border:0;
     top: -41px;
 }
-button.btn{
+button.btn, .btn{
     background: $brand-primary;
-    color:white;
+    #page-content .col-md-4 &, #page-content .col-md-4 & > div {@include truncate(100%);}
     &.btn-secondary{
         background: $brand-secondary; 
+    }
+    &, &.btn-default.active{
+        color:white;
     }
 }
 /*** Grid ***/
@@ -168,11 +172,10 @@ button.btn{
 }
 .course-title h4{
     @media screen and (min-width:425px) and (max-width:1280px){
-         @extend .ellipsis;
-    height:2.85rem;
-    margin-bottom: 0;
+        @include truncate(100%);
+        height:2.85rem;
+        margin-bottom: 0;
     }
-
 }
 
 .marketcontent{
@@ -186,7 +189,7 @@ button.btn{
 .text_to_html{
     .card-title & {
         @media screen and (min-width:425px) and (max-width:1280px){
-          @extend .ellipsis;
+          @include truncate(100%);
           height:2.85rem;
         }
         
@@ -202,10 +205,9 @@ button.btn{
 }
 
 [class*="col-"]{
-   
+/*   .course-info-container,*/
     .class-box-fp,
-    .market-tile,
-    .course-info-container{
+    .market-tile{
         @include shadow;
         border:0 !important;
         margin:{
@@ -225,15 +227,15 @@ button.btn{
 /*        height: 200px;*/
     } 
 }
-.block_myoverview {
+.courses-view-course-item {
     overflow:auto !important;
+    border:1px solid red;
 }
 /* =============================================================================
    icons
    ========================================================================== */
 .fpstart{
-    text-align: left;
-
+    padding:0;
 }
 
 .iconset{
@@ -242,6 +244,7 @@ button.btn{
     }
     .fpicon{
         background:transparent; 
+        margin:0;
         *{
             color:$brand-primary;
         }
@@ -282,28 +285,12 @@ button.btn{
 [data-key="1"]
 [data-key="participants"],
 [data-key="grades"]{
-    color:$light-text-color !important;
+/*    color:$light-text-color !important;*/
     &:before{
         content: " ";
     }
 }
-/*a[href*="//"]:not([href*="moodle-testing.spraachen.org/"]){
-    &.list-group-item > *:after{
-        display: inline-block;
-        content: "\f08e"; 
-        float:none;
-    }
-    .card-block &:after {
-        @include icon-style;
-        display: inline-block;
-        content: "\f08e";
-        color:$brand-primary;
-        margin-left:.5em;
-    }
-    .fpicon &:after {
-        content:"";
-    }
-}*/
+
 
 /* =============================================================================
    Typo
@@ -327,6 +314,9 @@ a {
     .navbar-light &,
     & > span{
         color: $brand-primary !important;  
+    }
+    .bg-inverse &{
+        color: lighten($brand-primary,100%) !important; 
     }
     &,&:link { 
         text-decoration: none;
@@ -354,6 +344,10 @@ h1,h2,h3,h4{
     text-rendering: optimizeLegibility;
     text-transform: uppercase;
     margin-bottom: $vertical-spacing;
+    
+    .bg-inverse &{
+       color: lighten($heading-text-color,100%); 
+    }
 }
 h1 {
 
@@ -365,9 +359,7 @@ h1 {
         content: "\f07c";
     }
 }
-h3 {
 
-}
 .card-text.content *{
     font-family:$body-font-family !important;
 }
@@ -383,6 +375,11 @@ h3 {
 .navbar-light .navbar-brand{
     background:transparent;
 }
+header .site-name{
+    @media screen and (max-width:1024px){
+        display:none;
+    }
+}
 
 
 /* =============================================================================
@@ -396,7 +393,7 @@ h3 {
         @media screen and (max-width:1280px){
             [class*="mdl-"]{
                 display: none;
-                @extend .ellipsis;
+                @include truncate(100%);
             }
         }
     }
@@ -420,11 +417,12 @@ h3 {
         &.container-fluid{
             padding: 0 1em !important;
         }
-        @media screen and (min-width: 991px)
+        @media screen and (min-width: 991px){
             [data-region="blocks-column"] {
-            width: calc(280px - 150px);
-        }
-    } 
+                width: calc(280px - 30px);
+            }
+        } 
+    }
 }
 #region-main{
     border-right: 1px solid $light-gray;
@@ -434,12 +432,39 @@ h3 {
     p img {
         display:inline-block;}
 }
+.path-grade-report #maincontent+.urlselect{
+    position: relative;
+    left:auto;
+    float:right;
+}
 h3.sectionname:before{
     @include icon-style;
     content: "\f0da";
 }
-.course-content .current::before{
+.course-content {
+    .current::before{
     border-left-width:3px;
+    }
+    .single-section {
+        .section-navigation {
+            .mdl-right, .mdl-left{
+                max-width:40%;
+                a{
+                    @include truncate(100%);
+                    .rarrow, .larrow{display:none;}
+                }
+            }
+            .mdl-left:before{
+                @include icon-style;
+                content: "\f0d9";
+            }
+            .mdl-right:after{
+                @include icon-style;
+                content: "\f0da";
+            }
+            
+        }
+    }
 }
 
 
@@ -485,6 +510,8 @@ Tables
 .gradeparent{
     overflow-x:auto;
 }
+
+
 /* =============================================================================
 media queries
 ===============================================================================*/
@@ -496,7 +523,7 @@ media queries
 }
 
 /* =============================================================================
-   Shame
+   Test
    ========================================================================== */
 /*.col-md-4{
     border:1px solid red;

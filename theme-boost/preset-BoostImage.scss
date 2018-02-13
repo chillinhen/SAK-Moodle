@@ -12,11 +12,26 @@ $gray-light:                #818a91 !default;
 $gray-lighter:              #eceeef !default;
 $gray-lightest:             #f7f7f9 !default;
 
-$brand-primary:             #2466A6 !default;
+$brand-primary:             #2466a8 !default;
+$brand-secondary:           #4385c8 !default;
 $brand-success:             #77b300 !default;
 $brand-warning:             #ff8800 !default;
 $brand-danger:              #ff4136 !default;
 $brand-inverse:             $gray-dark !default;
+
+$text-color:#333;
+$light-text-color:#999;
+$light-gray:$gray-light;
+$dark-gray:$gray-dark;
+
+// Body
+$body-bg:    #f4f4f4 !default;
+$body-color: #3a3a3a !default;
+
+$link-color:$brand-primary;
+$border-color:$light-gray;
+$mainBg:#F2F2F2;
+
 $navbar-height:             50px !default;
 
 // Spacing
@@ -25,14 +40,28 @@ $spacer-x: $spacer !default;
 $spacer-y: $spacer !default;
 $border-width: 1px !default;
 
-// Body
-$body-bg:    #f4f4f4 !default;
-$body-color: #3a3a3a !default;
+/*************************** Typo  *****************************/
+$base-font-size:            100% !default;
+$base-line-height:          150% !default;
+$rem-base:                  14px !default;
+
+$paragraph-margin:          1rem;
 
 // Typography
-$font-family-sans-serif: "Ubuntu", sans-serif;
-$headline-family-sans-serif: "Titilium Web", sans-serif;
-$font-size-root: 14px !default;
+$body-font-family: "Ubuntu", sans-serif;
+$headings-font-family: "Titilium Web", sans-serif;
+$font-size-root: 14px !default; 
+
+$heading-text-color:        $brand-primary;
+$text-color:                #333;
+$body-text-color:           $text-color;
+$text-muted-color:          lighten($text-color,25%);
+
+
+/* Margins & Paddings */
+$outer-grid:2 * $rem-base;
+$vertical-spacing:2*$rem-base;
+$card-padding:1rem;
 
 // Tables
 $table-bg:                      transparent !default;
@@ -60,138 +89,159 @@ $breadcrumb-padding:          0px 10px 0px 10px !default;
 $breadcrumb-divider: "/" !default;
 $breadcrumb-divider-rtl: "/" !default;
 
+//Mixins
+@mixin icon-style{
+    color: #000;
+    display: block;
+    float: left;
+    font-family: FontAwesome;
+    margin-right: .5rem;
+    text-align: left;
+    border-radius: 0;
+    background-color:transparent;
+    margin-top:0;
+}
+@mixin flexbox{
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; 
+    display: flex;
+}
+@mixin flex($item){
+    -webkit-box-flex: $item;   /* OLD - iOS 6-, Safari 3.1-6 */         /* For old syntax, otherwise collapses. */
+    -webkit-flex: $item;       /* Safari 6.1+. iOS 7.1+, BB10 */
+    -ms-flex: $item;           /* IE 10 */
+    flex: $item;
+}
+@mixin shadow {
+    -webkit-box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
+}
+/*************************Global extends ****************/
+@mixin truncate($width) {
+    width: $width;
+    max-width: 100%;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
 // Import everything.
 @import "moodle";
-//@import url("https://fonts.googleapis.com/css?family=Titillium+Web|Ubuntu");
+/*************************** Globals ****************************/
+/**{
+    color:red !important;
+}*/
+html { -webkit-text-size-adjust: auto; -ms-text-size-adjust: auto;}
+
+html, body, button, input, select, textarea { 
+    font-family:$body-font-family;
+    color: $text-color; }
+// body typography
+body {
+    text-rendering: optimizeLegibility;
+    font-size:$rem-base;
+    font-weight:400;
+    line-height: $base-line-height;
+    background: $mainBg;
+}
+
+/*** Buttons ***/
+button.btn, .btn{
+    background: $brand-primary;
+    #page-content .col-md-4 &, #page-content .col-md-4 & > div {@include truncate(100%);}
+    &.btn-secondary{
+        background: $brand-secondary; 
+    }
+    &, &.btn-default.active{
+        color:white;
+    }
+}
 /*** Headlines ***/
 h1, h2, h3, h4 {
-    font-family:$headline-family-sans-serif;
-    color:$brand-primary;
-}
-/**
- * Navigation bar identity.
- */
-.navbar-light {
-    background-color: #fff;
-    border-bottom: $border-width solid #e5e5e5;
+    font-family:"Titilium Web", sans-serif !important;
+    color: $heading-text-color;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+    margin-bottom: $vertical-spacing;
 
-    .container {
-        padding-left: 0;
-        padding-right: 0;
+    .bg-inverse &{
+        color: lighten($heading-text-color,100%); 
     }
+}
+h1 {
 
-    .navbar-brand {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        margin-right: $spacer * 2;
-        color: #fff;
-        background-color: $brand-primary;
-        @include hover-focus {
-            color: #fff;
-        }
-        &.has-logo {
-            color: $brand-primary;
-            background-color: transparent;
-            @include hover-focus {
-                color: $brand-primary;
+    &, #page-header &{
+        font-weight:400;
+    }
+    .page-header-headings &:before{
+        @include icon-style;
+        content: "\f07c";
+    }
+}
+a {
+    color: $brand-primary;
+    .navbar-light &,
+    & > span{
+        color: $brand-primary !important;  
+    }
+    .bg-inverse &{
+        color: lighten($brand-primary,100%) !important; 
+    }
+    &,&:link { 
+        text-decoration: none;
+        cursor:pointer;
+    }
+    &:hover{
+        color: $brand-secondary; 
+        text-decoration: underline;
+    }
+    &:visited{
+        opacity:.5;
+    }
+    &:visited{ 
+        text-decoration: none !important;
+    }
+    &:hover,&:focus {outline:none;}
+
+    /*    &.external:after{
+            @include icon-style ("\f08e", 0, 1, .5em, .8em);
+        }*/
+}
+
+/*** Content ***/
+.card{
+    border:0;
+}
+.course-content {
+    .current::before{
+    border-left-width:3px;
+    }
+    .single-section {
+        .section-navigation {
+            .mdl-right, .mdl-left{
+                max-width:40%;
+                a{
+                    @include truncate(100%);
+                    .rarrow, .larrow{display:none;}
+                }
             }
+            .mdl-left:before{
+                @include icon-style;
+                content: "\f0d9";
+            }
+            .mdl-right:after{
+                @include icon-style;
+                content: "\f0da";
+            }
+            
         }
     }
-
-    .navbar-nav {
-        .nav-item + .nav-item {
-            margin-left: $spacer * 2;
-        }
-        .nav-link {
-            font-size: $font-size-sm;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-    }
 }
-
-/**
- * Styling the dropdown menus.
- */
-.dropdown-menu {
-    font-size: 14px;
-    border-radius: 0;
-    .dropdown-item {
-        padding-top: 8px;
-        padding-bottom: 8px;
-        border-bottom: $border-width solid $dropdown-border-color;
-        &:last-child {
-            border-bottom: 0;
-        }
-    }
-    .dropdown-divider {
-        display: none;
-    }
-}
-
-/**
- * User picture.
- */
-.userpicture {
-    border-radius: 50%;
-}
-
-/**
- * For background in content areas.
- */
-#page.container-fluid {
-    padding: 0 (2 * $spacer);
-}
-
-#block-region-side-pre {
-    padding-left: 0;
-}
-
-/**
- * Dashboard styling.
- */
-#page-my-index {
-    #region-main {
-        background-color: transparent;
-        border: 0;
-        padding: 0;
-    }
-}
-
-/**
- * Blocks.
- */
-.block-region .card-block {
-    .card-title {
-        padding-bottom: ($spacer/2);
-        font-size: 1.143rem;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-}
-
-/**
- * Navigation.
- */
-.block_navigation,
-.block_settings {
-    .block_tree .tree_item {
-        margin: ($spacer/2) 0;
-    }
-}
-
-/**
- * Form styles.
- */
-
-.form-group {
-    margin-top: ($spacer/2);
-}
-
-.form-inline .form-group {
-    margin-top: 0;
-}
-
 /**
  * page header.
  */
