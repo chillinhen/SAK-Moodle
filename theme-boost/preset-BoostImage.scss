@@ -1,17 +1,6 @@
 
 
-/*** Headlines ***/
-h1, h2, h3, h4 {
-    font-family:"Titilium Web", sans-serif !important;
-    color: $heading-text-color;
-    text-rendering: optimizeLegibility;
-    text-transform: uppercase;
-    margin-bottom: $vertical-spacing;
 
-    .bg-inverse &{
-        color: lighten($heading-text-color,100%); 
-    }
-}
 h1 {
 
     &, #page-header &{

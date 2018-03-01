@@ -1,4 +1,5 @@
 /* ===================VARIABLES=====================*/
+$foo:red;
 // Colors
 $gray-dark:                 #373a3c !default;
 $gray:                      #55595c !default;
@@ -25,27 +26,30 @@ $body-color: #3a3a3a !default;
 $link-color:$brand-primary;
 $border-color:$light-gray;
 $mainBg:#F2F2F2;
-
-/* ===================SCSS=====================*/
-// Always the same.
+/* ===================MIXINS=====================*/
 @import "moodle";
+/* ===================GLOBALS=====================*/
 html { -webkit-text-size-adjust: auto; -ms-text-size-adjust: auto;}
+body{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight:400;
+    /*        font-size:$rem-base;
+        line-height: $base-line-height;*/
+    background: $mainBg; 
+}
+
+
+/* ===================TYPOGRAPHY=====================*/
 html, body, button, input, select, textarea { 
     /*    font-family:$body-font-family;*/
     color: $text-color; }
 body, h1, h2, h3, h4{
     text-rendering: optimizeLegibility;
 }
-body{
-    font-family: 'Ubuntu', sans-serif;
-    font-weight:400;
-    /*        font-size:$rem-base;
-        line-height: $base-line-height;*/
-    background: $mainBg;
-}
 h1, h2, h3, h4 {
     font-family: 'Titillium Web', sans-serif;
     font-weight:500;
-    text-transform:uppercase;
-    color:$brand-primary;
 }
+
+
+/* ===================LAYOUT=====================*/
