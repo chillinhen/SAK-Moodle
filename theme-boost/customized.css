@@ -9,10 +9,10 @@ Error: File to import not found or unreadable: moodle.
 111: // Import everything.
 112: @import "moodle";
 113: 
-114: /** SAK Typography ***\/
-115: html, body{
-116:     text-rendering: optimizeLegibility;
-117: }
+114: 
+115: /** SAK Typography ***\/
+116: html, body{
+117:     text-rendering: optimizeLegibility;
 
 Backtrace:
 /Users/chilliscope/Documents/Webseiten/SAK-Moodle/theme-boost/customized.scss:112
@@ -59,4 +59,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: moodle.\A         on line 112 of /Users/chilliscope/Documents/Webseiten/SAK-Moodle/theme-boost/customized.scss\A \A 107:     -moz-box-shadow: 0 0 1px 2px rgba(0,0,0,.2);\A 108:     box-shadow: 0 0 1px 2px rgba(0,0,0,.2);\A 109: }\A 110: \A 111: // Import everything.\A 112: @import \"moodle\";\A 113: \A 114: /** SAK Typography ***/\A 115: html, body{\A 116:     text-rendering: optimizeLegibility;\A 117: }"; }
+  content: "Error: File to import not found or unreadable: moodle.\A         on line 112 of /Users/chilliscope/Documents/Webseiten/SAK-Moodle/theme-boost/customized.scss\A \A 107:     -moz-box-shadow: 0 0 1px 2px rgba(0,0,0,.2);\A 108:     box-shadow: 0 0 1px 2px rgba(0,0,0,.2);\A 109: }\A 110: \A 111: // Import everything.\A 112: @import \"moodle\";\A 113: \A 114: \A 115: /** SAK Typography ***/\A 116: html, body{\A 117:     text-rendering: optimizeLegibility;"; }
