@@ -1,0 +1,266 @@
+/*==================================VARIABLES==========================================*/
+
+// Colors
+$gray-dark:                 #373a3c !default;
+$gray:                      #55595c !default;
+$gray-light:                #818a91 !default;
+$gray-lighter:              #eceeef !default;
+$gray-lightest:             #f7f7f9 !default;
+
+$brand-primary:             #2466A6 !default;
+$brand-success:             #77b300 !default;
+$brand-warning:             #ff8800 !default;
+$brand-danger:              #ff4136 !default;
+$brand-inverse:             $gray-dark !default;
+$navbar-height:             50px !default;
+
+// Spacing
+$spacer:   1rem !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+$border-width: 1px !default;
+
+// Body
+$body-bg:    #f4f4f4 !default;
+$body-color: #3a3a3a !default;
+
+// Typography
+$font-family-sans-serif: "Ubuntu", Arial, sans-serif !default;
+$headings-font-family-sans-serif: "Titillium Web", sans-serif;
+
+$font-size-root:            14px !default;
+$font-size-height:          150% !default;
+$paragraph-margin:          $font-size-root;
+
+$text-color:                $gray-dark;
+$heading-text-color:        $brand-primary;
+$body-text-color:           $text-color;
+$text-muted-color:          lighten($text-color,25%);
+
+/* Margins & Paddings */
+$outer-grid:                2 * $font-size-root;
+$vertical-spacing:          2 * $font-size-root;
+$card-padding:              1rem;
+
+// Tables
+$table-bg:                      transparent !default;
+$table-bg-accent:               #fafafa !default;
+$table-bg-hover:                lighten($brand-primary, 55%) !default;
+$table-bg-active:               $table-bg-hover !default;
+$table-border-color:            #f4f4f4 !default;
+
+// Dropdowns
+$dropdown-border-color:          #e2e2e2 !default;
+$dropdown-link-color:            $body-color;
+
+// Navbar
+$navbar-light-color:                rgba(0, 0, 0, .535) !default;
+$navbar-light-hover-color:          $brand-primary !default;
+$navbar-light-active-color:         $brand-primary !default;
+
+// Cards
+$card-border-radius:       0 !default;
+$card-border-color:        rgba(238, 238, 238, 1) !default;
+
+// Breadcrumbs
+$breadcrumb-bg:                 transparent !default;
+$breadcrumb-padding-x:          0 !default;
+$breadcrumb-divider: "/" !default;
+$breadcrumb-divider-rtl: "/" !default;
+
+/*==================================MIXINS==========================================*/
+@mixin truncate($width) {
+    width: $width;
+    max-width: 100%;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+@mixin icon-style{
+    color: #000;
+    display: block;
+    float: left;
+    font-family: FontAwesome;
+    margin-right: .5rem;
+    text-align: left;
+    border-radius: 0;
+    background-color:transparent;
+    margin-top:0;
+}
+@mixin flexbox{
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; 
+    display: flex;
+}
+@mixin flex($item){
+    -webkit-box-flex: $item;   /* OLD - iOS 6-, Safari 3.1-6 */         /* For old syntax, otherwise collapses. */
+    -webkit-flex: $item;       /* Safari 6.1+. iOS 7.1+, BB10 */
+    -ms-flex: $item;           /* IE 10 */
+    flex: $item;
+}
+@mixin shadow {
+    -webkit-box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
+}
+
+// Import everything.
+@import "moodle";
+
+
+/** SAK Typography ***/
+html, body{
+    text-rendering: optimizeLegibility;
+}
+body {   
+    font-size:$font-size-root;
+    font-weight:400;
+    line-height: $font-size-height;
+}
+h1, h2, h3, h4 {
+    font-family: $headings-font-family-sans-serif;
+    color:$heading-text-color;
+    font-weight:500;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-top: $paragraph-margin;
+    margin-bottom: $paragraph-margin * 2;
+}
+h3{
+    font-size:1.5rem;
+}
+
+/*** Icons ***/
+/** reset first ***/
+.coursebox > .info > .coursename a{
+    background-image: none;
+}
+.list-group-item .media-left{display:none;}
+
+#nav-drawer{
+    [data-key]:before{
+        @include icon-style;
+        content: "\f114";
+    }
+    [data-key="home"]{
+        &:before{
+            content: "\f039";  
+        }
+        &:first-child:before{
+            content: "\f015";
+        }
+    }
+    [data-key="calendar"]:before{
+        content: "\f133";
+    }
+    [data-key="privatefiles"]:before{
+        content: "\f0c5";
+    }
+    [data-key="coursehome"]:before,
+        [data-key="mycourses"]:before{
+        content: "\f07c";
+    }
+    [data-key="sitesettings"]:before{
+        content: "\f085";
+    }
+    [data-key="participants"]:before{
+        content: "\f007";
+    }
+    [data-key="1"]:before{
+        content: "\f0a3";
+    }
+    [data-key="grades"]:before{
+        content: "\f19d";
+    }
+    [data-key="addblock"]:before{
+        content: "\f067";
+    }
+    .list-group-item-action.font-weight-bold[data-key]:first-child:before{
+        @include icon-style;
+        content: "\f07c";
+    }
+    .list-group-item-action.font-weight-bold[data-key]:before{
+        @include icon-style;
+        content: "\f07b";
+    }
+}
+//icons in der Sidebar
+.card-title{
+    [data-block] &:before{
+        @include icon-style;
+    }
+    [data-block="calendar_month"] &:before{
+        content: "\f073";
+    }
+    [data-block="admin_bookmarks"] &:before{
+        content: "\f02e";
+    }
+    [data-block="blog_recent"] &:before{
+        content: "\f1ea";
+    }
+    [data-block="calendar_upcoming"] &:before{
+        content: "\f073";
+    }
+    [data-block="blog_menu"] &:before{
+        content: "\f022";
+    }
+    [data-block="blog_tags"] &:before{
+        content: "\f02c";
+    }
+    [data-block="community"] &:before{
+        content: "\f0c0";
+    }
+    [data-block="settings"] &:before{
+        content: "\f085";
+    }
+    [data-block="globalsearch"] &:before{
+        content: "\f002";
+    }
+    [data-block="glossary_random"] &:before{
+        content: "\f044";
+    }
+    [data-block="course_list"] &:before{
+        content: "\f12e";
+    }
+    [data-block="comments"] &:before{
+        content: "\f086";
+    }
+    [data-block="course_summary"] &:before{
+        content: "\ ";
+    }
+        [data-block=""] &:before{
+        content: "\ ";
+    }
+        [data-block=""] &:before{
+        content: "\ ";
+    }
+        [data-block=""] &:before{
+        content: "\ ";
+    }
+        [data-block=""] &:before{
+        content: "\ ";
+    }
+
+}
+
+//Icons in den Überschriften
+#site-news-forum h2:before{
+    @include icon-style;
+    content: "\f075" !important;
+}
+#frontpage-course-list h2:before{
+    @include icon-style;
+    content: "\f07c" !important;
+}
+.courses.frontpage-course-list-enrolled h3{
+    width:100%;
+    &:before{
+        @include icon-style;
+        content: "\f114";
+    }
+}
+
