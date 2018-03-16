@@ -161,7 +161,7 @@ h3{
         content: "\f0c5";
     }
     [data-key="coursehome"]:before,
-        [data-key="mycourses"]:before{
+    [data-key="mycourses"]:before{
         content: "\f07c";
     }
     [data-key="sitesettings"]:before{
@@ -174,7 +174,7 @@ h3{
         content: "\f0a3";
     }
     [data-key="grades"]:before{
-        content: "\f19d";
+        content: "\f005";
     }
     [data-key="addblock"]:before{
         content: "\f067";
@@ -230,24 +230,52 @@ h3{
         content: "\f086";
     }
     [data-block="course_summary"] &:before{
-        content: "\ ";
+        content: "\f15c";
     }
-        [data-block=""] &:before{
-        content: "\ ";
+    [data-block="private_files"] &:before{
+        content: "\f0c5";
     }
-        [data-block=""] &:before{
-        content: "\ ";
+    [data-block="messages"] &:before{
+        content: "\f0f3";
     }
-        [data-block=""] &:before{
-        content: "\ ";
+    [data-block="navigation"] &:before{
+        content: "\f14e";
     }
-        [data-block=""] &:before{
-        content: "\ ";
+    [data-block="online_users"] &:before{
+        content: "\f017";
+    }
+    [data-key="sitesettings"] &:before{
+        content: "\f085";
+    }
+    [data-block="mentees"] &:before{
+        content: "\f19d";
+    }
+    [data-block="participants"] &:before{
+        content: "\f0c0";
+    }
+    [data-block="news_items"] &:before{
+        content: "\f1ea";
+    }
+    [data-block="search_forums"] &:before{
+        content: "\f0ea";
+    }
+    [data-block="lp"] &:before{
+        content: "\f0ca";// = Lernpläne
     }
 
 }
 
 //Icons in den Überschriften
+#page-header h1:before{
+    @include icon-style;
+    
+    #page-course-view-topics &{
+      content: "\f07c";  
+    }
+    [id*="page-admin"] &{
+        content: "\f085";
+    }
+}
 #site-news-forum h2:before{
     @include icon-style;
     content: "\f075" !important;
@@ -263,4 +291,6 @@ h3{
         content: "\f114";
     }
 }
+
+/** Dashboard ***/
 
