@@ -294,3 +294,21 @@ h3{
 
 /** Dashboard ***/
 
+/*** Kacheln ***/
+.frontpage-course-list-enrolled{
+    display:flex;
+    flex-grow:1;
+    flex-wrap:wrap;
+    margin:0 -2rem;
+    > .coursebox {
+        flex:1;
+        flex-basis:calc(50%-2rem);
+        &:last-child{
+            flex-grow:0;
+            flex-shrink:0
+        }
+    }
+    .paging{
+        flex-basis:100%;
+    }
+}

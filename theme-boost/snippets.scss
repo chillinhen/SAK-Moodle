@@ -1,27 +1,10 @@
-[data-key]{
-    &:before{
-      content: "\f07b";  
-    }
-}
-[data-key="home"]{
-    &:before{
-      content: "\f3fd";  
-    }
-    &:first-child:before{
-       content: "\f015";
-    }
-}
-[data-key="calendar"]:before{
-    content: "\f073";
-}
-[data-key="privatefiles"]:before{
-    content: "\f0c5";
-}
-[data-key="mycourses"]:before{
-    content: "\f07c";
-}
-[data-key="sitesettings"]:before{
-    content: "\f085";
-}
+$width: 978.333;
 
-
+#page-content {
+   @if $width < 978.333 { 
+       background-color: color: blue;
+       @if $width == 978.333 {
+          background-color: red;
+        }
+    }
+}
