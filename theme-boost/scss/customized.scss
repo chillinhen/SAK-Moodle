@@ -108,6 +108,7 @@ $breadcrumb-divider-rtl: "/" !default;
     box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
 }
 
+
 // Import everything.
 @import "moodle";
 
@@ -121,6 +122,7 @@ body {
     font-weight:400;
     line-height: $font-size-height;
 }
+/*** ToDo Typo ***/
 h1, h2, h3, h4 {
     font-family: $headings-font-family-sans-serif;
     color:$heading-text-color;
@@ -293,16 +295,14 @@ h3{
 }
 
 /** Dashboard ***/
-
-/*** Kacheln ***/
-.frontpage-course-list-enrolled{
+@mixin kacheln{
     display:flex;
     flex-grow:1;
     flex-wrap:wrap;
-    margin:0 -2rem;
+    margin:0 -20px;
     > .coursebox {
-        flex:1;
-        flex-basis:calc(50%-2rem);
+/*        flex:1;*/
+        flex-basis:calc(50%-20px);
         &:last-child{
             flex-grow:0;
             flex-shrink:0
@@ -310,5 +310,18 @@ h3{
     }
     .paging{
         flex-basis:100%;
+    }
+}
+/*** Kacheln ***/
+#region-main{
+    &.smaller{
+        
+    }
+}
+.frontpage-course-list-enrolled{
+    border:1px solid red;
+    #region-main.smaller &{
+        @include kacheln;
+        border:0;
     }
 }
