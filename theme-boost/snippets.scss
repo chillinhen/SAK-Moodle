@@ -1,10 +1,43 @@
-$width: 978.333;
-
-#page-content {
-   @if $width < 978.333 { 
-       background-color: color: blue;
-       @if $width == 978.333 {
-          background-color: red;
+/** Dashboard ***/
+@mixin kacheln{
+    display:flex;
+    flex-grow:1;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    > .coursebox {
+        /*        flex:1;*/
+        flex-basis:33%;
+        &:last-child{
+            flex-grow:0;
+            flex-shrink:0
         }
     }
+    .paging{
+        flex-basis:100%;
+    }
+}
+
+
+/*** Kacheln ***/
+.frontpage-course-list-enrolled{
+    border:1px solid lime;
+    display:block;
+    #region-main.larger &{
+
+        border:1px solid red;
+        @include kacheln;
+        .coursebox{
+            .summary{
+                float:none;
+            }
+            .teachers{
+                width:100%
+            }
+        }
+    }
+}
+.coursebox{
+    @include shadow;
+    border:1px solid #fafafa;
+    > * {border:1px solid orange;}
 }
