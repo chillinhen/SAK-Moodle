@@ -452,6 +452,27 @@ h1, h2, h3, h4{
         }
     }
 }
-
-
-
+/** Navigation **/
+.tab-style{
+    color: white;
+    background-color: #000;
+    border-color:transparent;
+}
+.nav-tabs{
+    .nav-item{
+        .open{
+            @extend .tab-style;
+        }
+    }
+    .nav-link{
+        .nav-item.open &:hover{@extend .tab-style;}
+        &:active,
+        &:focus,
+        &:hover{
+            @extend .tab-style;
+        }
+        &.active{
+            color:white;
+        }
+    }
+}

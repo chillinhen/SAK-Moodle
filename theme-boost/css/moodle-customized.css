@@ -1,21 +1,21 @@
 /*
 Error: File to import not found or unreadable: moodle.
-        on line 145 of /Users/chilliscope/Documents/Webseiten/SAK-Moodle/theme-boost/scss/customized.scss
+        on line 150 of /Users/chilliscope/Documents/Webseiten/SAK-Moodle/theme-boost/scss/moodle-customized.scss
 
-140:     }
-141: }
-142: 
-143: 
-144: // Import everything.
-145: @import "moodle";
-146: 
+145:     }
+146: }
 147: 
-148: /** SAK Typography ***\/
-149: html, body{
-150:     text-rendering: optimizeLegibility;
+148: 
+149: // Import everything.
+150: @import "moodle";
+151: 
+152: 
+153: /** SAK Typography ***\/
+154: html, body{
+155:     text-rendering: optimizeLegibility;
 
 Backtrace:
-/Users/chilliscope/Documents/Webseiten/SAK-Moodle/theme-boost/scss/customized.scss:145
+/Users/chilliscope/Documents/Webseiten/SAK-Moodle/theme-boost/scss/moodle-customized.scss:150
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:45:in `import'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -51,11 +51,12 @@ Backtrace:
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:252:in `call'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:252:in `on_change'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
 */
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: moodle.\A         on line 145 of /Users/chilliscope/Documents/Webseiten/SAK-Moodle/theme-boost/scss/customized.scss\A \A 140:     }\A 141: }\A 142: \A 143: \A 144: // Import everything.\A 145: @import \"moodle\";\A 146: \A 147: \A 148: /** SAK Typography ***/\A 149: html, body{\A 150:     text-rendering: optimizeLegibility;"; }
+  content: "Error: File to import not found or unreadable: moodle.\A         on line 150 of /Users/chilliscope/Documents/Webseiten/SAK-Moodle/theme-boost/scss/moodle-customized.scss\A \A 145:     }\A 146: }\A 147: \A 148: \A 149: // Import everything.\A 150: @import \"moodle\";\A 151: \A 152: \A 153: /** SAK Typography ***/\A 154: html, body{\A 155:     text-rendering: optimizeLegibility;"; }
