@@ -1,6 +1,18 @@
-.coursebox.hasThumbnail{
-    .content{
-        display:flex;
-        
-    } 
+.tab-style{
+    color: #55595c;
+    background-color: #000;
+    border-color:transparent;
+}
+.nav-tabs{
+    .nav-item{
+        .open{
+            @extend .tab-style;
+        }
+    }
+    .nav-link{
+        .nav-item.open &:hover{@extend .tab-style;}
+        &:active,
+        &:focus,
+        &:hover{@extend .tab-style;}
+    }
 }

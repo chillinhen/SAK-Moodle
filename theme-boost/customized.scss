@@ -21,7 +21,7 @@ $spacer-y: $spacer !default;
 $border-width: 1px !default;
 
 // Body
-$body-bg:    #000;
+$body-bg:    #f4f4f4 !default;
 $body-color: #3a3a3a !default;
 
 // Typography
@@ -78,8 +78,8 @@ $breadcrumb-divider-rtl: "/" !default;
     text-overflow: ellipsis;
     word-wrap: break-word;
 }
-@mixin icon-style($col){
-    color: $col;
+@mixin icon-style{
+    color: #000;
     display: block;
     float: left;
     font-family: FontAwesome;
@@ -102,47 +102,10 @@ $breadcrumb-divider-rtl: "/" !default;
     -ms-flex: $item;           /* IE 10 */
     flex: $item;
 }
-@mixin shadow($width, $col) {
+@mixin shadow {
     -webkit-box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
     -moz-box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
     box-shadow: 0 0 1px 2px rgba(0,0,0,.2);
-}
-/** Dashboard ***/
-@mixin kacheln{
-    display:flex;
-    flex-grow:1;
-    flex-wrap:wrap;
-    justify-content:space-between;
-    > .coursebox {
-        flex-basis: calc(33% - 14px);
-        margin-bottom: 14px;
-        display:flex;
-        flex-direction:column;
-        &.hasThumbnail{
-            .content{order:1;}
-            .info{order:2}
-        }
-        .content{
-            display: flex;
-            flex-direction: column;
-            .courseimage{order:1;}
-            .summary{
-                float:none;
-                order:2;
-            }
-            .teachers{
-                width:auto;
-                order:3;
-            }
-        }
-        &:last-child{
-            flex-grow:0;
-            flex-shrink:0
-        }
-    }
-    .paging{
-        flex-basis:100%;
-    }
 }
 
 
@@ -158,9 +121,6 @@ body {
     font-size:$font-size-root;
     font-weight:400;
     line-height: $font-size-height;
-     background:$body-bg url(http://www.spraachen.org/wp-content/uploads/2013/12/weltkarte.png) center top no-repeat/ cover;
-    background-attachment: scroll;
-    color:$body-color;
 }
 /*** ToDo Typo ***/
 h1, h2, h3, h4 {
@@ -175,18 +135,7 @@ h1, h2, h3, h4 {
 h3{
     font-size:1.5rem;
 }
-/*** Buttons ***/
-.btn-secondary, .btn-default{
-    background-color: $brand-primary;
-    border-color:darken($brand-primary,25%);
-    color:white;
-    [data-region="drawer-toggle"] &{border:0;}
-    &:hover, &:focus, &:active{
-        background-color: lighten($brand-primary,5%);
-        border:0;
-        color:white;
-    }
-}
+
 /*** Icons ***/
 /** reset first ***/
 .coursebox > .info > .coursename a{
@@ -196,7 +145,7 @@ h3{
 
 #nav-drawer{
     [data-key]:before{
-        @include icon-style(#fff);
+        @include icon-style;
         content: "\f114";
     }
     [data-key="home"]{
@@ -214,7 +163,7 @@ h3{
         content: "\f0c5";
     }
     [data-key="coursehome"]:before,
-        [data-key="mycourses"]:before{
+    [data-key="mycourses"]:before{
         content: "\f07c";
     }
     [data-key="sitesettings"]:before{
@@ -233,18 +182,18 @@ h3{
         content: "\f067";
     }
     .list-group-item-action.font-weight-bold[data-key]:first-child:before{
-        @include icon-style(#fff);
+        @include icon-style;
         content: "\f07c";
     }
     .list-group-item-action.font-weight-bold[data-key]:before{
-        @include icon-style(#fff);
+        @include icon-style;
         content: "\f07b";
     }
 }
 //icons in der Sidebar
 .card-title{
     [data-block] &:before{
-        @include icon-style(#000);
+        @include icon-style;
     }
     [data-block="calendar_month"] &:before{
         content: "\f073";
@@ -320,138 +269,28 @@ h3{
 
 //Icons in den Überschriften
 #page-header h1:before{
-    @include icon-style(#fff);
-
+    @include icon-style;
+    
     #page-course-view-topics &{
-        content: "\f07c";  
+      content: "\f07c";  
     }
     [id*="page-admin"] &{
         content: "\f085";
     }
 }
 #site-news-forum h2:before{
-    @include icon-style(#000);
+    @include icon-style;
     content: "\f075" !important;
 }
 #frontpage-course-list h2:before{
-    @include icon-style(#000);
+    @include icon-style;
     content: "\f07c" !important;
 }
-[class*="frontpage-course-list"]{
-     h3 {
-        width:100%;
-        &:before{
-            @include icon-style(#000);
-            content: "\f114";
-        }
+.courses.frontpage-course-list-enrolled h3{
+    width:100%;
+    &:before{
+        @include icon-style;
+        content: "\f114";
     }
 }
-
-/*** Gen. Layout  - Colors ***/
-header.navbar-static-top{
-  background-color: $brand-primary;
-    .navbar-nav .nav-link,
-    .site-name,
-    .usertext{
-        color:white !important;
-    }
-}
-.navbar-brand.has-logo{
-   img{
-       -webkit-filter: brightness(5); /* Safari 6.0 - 9.0 */
-    filter: brightness(5);
-    }
-}
-.card{
-    background-color:transparent;
-     border:0;
-    section[data-region="blocks-column"]{
-       background-color: #e5e5e4; 
-    }
-    #page-header &{
-        background-color:transparent;
-        &, & *{color:white;}
-       
-    }
-}
-#page-content{
-    background-color: #F2F2F2;
-}
-.coursebox{
-    background-color:white !important;
-}
-
-h1, h2, h3, h4{
-    #page-header &{
-        color:white;
-    }
-    #page-content &{
-        color:$heading-text-color;
-    }
-}
-[data-region="drawer"]{
-    padding:0;
-    background-color: rgba( $brand-primary, .7 );
-    .list-group-item {
-        background-color: inherit;
-        border:{
-            color:#eee;
-            width:1px 0 0 0;
-            style:solid;
-        }
-        &, &.list-group-item-action{color:white;}
-    }
-}
-.list-group m-t-1{
-    .list-group-item.list-group-item-action{
-        border:0;
-        background-color:darken($brand-primary, 30%);
-    }
-}
-/*** Gen. Layout  - Widths, Margins, Paddings ***/
-.row{
-    &#page-content,
-    &#page-header{
-        max-width: 1170px;
-        margin:0 auto;
-    }
-}
-/*** Start Layout Thumbnails ***/
-[class*="frontpage-course-list"]{
-    display:block;
-   
-    #region-main.larger &{
-        @include kacheln;
-    }
-}
-.coursebox{
-    @include shadow(0 0 1px 2px, rgba(0,0,0,.2));
-    #region-main.larger &{
-        &.even,&.odd{
-            &,&:hover{
-                background-color:#e5e5e4;
-                border:0;
-            }
-            &:hover{
-                -webkit-box-shadow: 0;
-                -moz-box-shadow:0;
-                box-shadow: 0;
-            }
-        }
-    }
-    &.hasThumbnail{
-        .courseimage{
-            margin: 0 auto 1em auto;
-            width: 100%;
-            img{
-                width: 100%;
-                height:auto;
-                max-height: none;
-                max-width:none;
-            }
-        }
-    }
-}
-
-
 
