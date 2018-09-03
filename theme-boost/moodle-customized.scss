@@ -1,11 +1,13 @@
 /*==================================VARIABLES==========================================*/
 
 // Colors
+$black:                     #000 !default;
 $gray-dark:                 #373a3c !default;
 $gray:                      #55595c !default;
 $gray-light:                #818a91 !default;
 $gray-lighter:              #eceeef !default;
 $gray-lightest:             #f7f7f9 !default;
+$white:                     #fff !default;
 
 $brand-primary:             #2466A6 !default;
 $brand-success:             #77b300 !default;
@@ -36,6 +38,8 @@ $text-color:                $gray-dark;
 $heading-text-color:        $brand-primary;
 $body-text-color:           $text-color;
 $text-muted-color:          lighten($text-color,25%);
+$light-hover-color:         lighten($brand-primary,5%);
+$dark-hover-color:          darken($brand-primary,10%);
 
 /* Margins & Paddings */
 $outer-grid:                2 * $font-size-root;
@@ -115,7 +119,6 @@ $breadcrumb-divider-rtl: "/" !default;
     justify-content:space-between;
     > .coursebox {
         flex-basis: calc(33% - 14px);
-        
         display:flex;
         flex-direction:column;
         &.hasThumbnail{
@@ -128,11 +131,9 @@ $breadcrumb-divider-rtl: "/" !default;
             .courseimage{order:1;}
             .summary{
                 float:none;
-                order:2;
             }
             .teachers{
                 width:auto;
-                order:3;
             }
         }
         &:last-child{
@@ -142,14 +143,25 @@ $breadcrumb-divider-rtl: "/" !default;
     }
     .paging{
         flex-basis:100%;
+        &.paging-morelink{
+            margin:2rem 0;
+            a{
+                background:$brand-primary;
+                padding:.75rem 2rem;
+                color:#fff;
+                text-transform:uppercase;
+                &:hover{
+                    background:$light-hover-color;
+                    text-decoration: none;
+                }
+            }
+        }
     }
 }
 
 
 // Import everything.
 @import "moodle";
-
-
 /** SAK Typography ***/
 html, body{
     text-rendering: optimizeLegibility;
@@ -158,7 +170,7 @@ body {
     font-size:$font-size-root;
     font-weight:400;
     line-height: $font-size-height;
-     background:$body-bg url(http://www.spraachen.org/wp-content/uploads/2013/12/weltkarte.png) center top no-repeat/ cover;
+    background:$body-bg url(http://www.spraachen.org/wp-content/uploads/2013/12/weltkarte.png) center top no-repeat/ cover;
     background-attachment: scroll;
     color:$body-color;
 }
@@ -171,6 +183,10 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
     margin-top: $paragraph-margin;
     margin-bottom: $paragraph-margin * 2;
+    > a{
+        color:inherit !important;
+        &:hover{text-decoration: none;}
+    }
 }
 h3{
     font-size:1.5rem;
@@ -182,15 +198,28 @@ h3{
     color:white;
     [data-region="drawer-toggle"] &{border:0;}
     &:hover, &:focus, &:active{
-        background-color: lighten($brand-primary,5%);
+        background-color:$light-hover-color;
         border:0;
         color:white;
     }
+}
+.numberofcourse{
+    background: $brand-primary;
+    color: $white;
+    display: inline-flex;
+    padding: .25rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    border-radius: 1rem;
 }
 /*** Icons ***/
 /** reset first ***/
 .coursebox > .info > .coursename a{
     background-image: none;
+    padding: 0;
 }
 .list-group-item .media-left{display:none;}
 
@@ -338,18 +367,18 @@ h3{
     content: "\f07c" !important;
 }
 [class*="frontpage-course-list"]{
-     h3 {
+    h3 {
         width:100%;
-        &:before{
-            @include icon-style(#000);
-            content: "\f114";
-        }
+        /*        &:before{
+                    @include icon-style(#000);
+                    content: "\f114";
+                }*/
     }
 }
 
 /*** Gen. Layout  - Colors ***/
 header.navbar-static-top{
-  background-color: $brand-primary;
+    background-color: $brand-primary;
     .navbar-nav .nav-link,
     .site-name,
     .usertext{
@@ -357,21 +386,21 @@ header.navbar-static-top{
     }
 }
 .navbar-brand.has-logo{
-   img{
-       -webkit-filter: brightness(5); /* Safari 6.0 - 9.0 */
-    filter: brightness(5);
+    img{
+        -webkit-filter: brightness(5); /* Safari 6.0 - 9.0 */
+        filter: brightness(5);
     }
 }
 .card{
     background-color:transparent;
-     border:0;
+    border:0;
     section[data-region="blocks-column"]{
-       background-color: #e5e5e4; 
+        background-color: #e5e5e4; 
     }
     #page-header &{
         background-color:transparent;
         &, & *{color:white;}
-       
+
     }
 }
 #page-content{
@@ -383,10 +412,16 @@ header.navbar-static-top{
 
 h1, h2, h3, h4{
     #page-header &{
-        color:white;
+        color:$white;
     }
     #page-content &{
         color:$heading-text-color;
+    }
+}
+a{
+    .coursename &.dimmed,
+    .categoryname &{
+        color: $gray-dark !important;
     }
 }
 [data-region="drawer"]{
@@ -419,13 +454,43 @@ h1, h2, h3, h4{
 /*** Start Layout Thumbnails ***/
 [class*="frontpage-course-list"]{
     display:block;
-   
+
     #region-main.larger &{
         @include kacheln;
     }
 }
+#region-main{
+    .summary{
+        float: left !important;
+        width:100%;
+    }
+    .larger{
+    .summary, .teachers{display:none;}
+    
+    #frontpage-course-list .coursebox .content{
+        height:0;
+        width:100%;
+        padding-bottom: 66%;
+        position:relative;
+        @include flexbox;
+        flex-direction: column;
+        overflow: hidden;
+        .courseimage{
+            position: absolute; 
+            height: 100%; 
+            width: 100%; 
+            left: 0; 
+            top: 0;
+        }
+        .courseimage{order:1;}
+        .summary{order:2;}
+        .teachers{order:3;}
+    }
+}
+}
+
 .coursebox{
-/*    @include shadow(0 0 0 1px, rgba(0,0,0,.2));*/
+    /*    @include shadow(0 0 0 1px, rgba(0,0,0,.2));*/
     margin-bottom: 14px;
     &.collapsed{margin-bottom:.5em;}
     #region-main.larger &{
@@ -469,13 +534,18 @@ h1, h2, h3, h4{
     .nav-link{
         .nav-item.open &:hover{@extend .tab-style;}
         &:active,
-        &:focus,
-        &:hover{
+            &:focus,
+            &:hover{
             @extend .tab-style;
         }
         &.active{
             color:white;
         }
+    }
+}
+.action-menu .dropdown-item  {
+    &, & *{
+        color:#000 !important;
     }
 }
 /**** Buttons ****/
@@ -485,3 +555,18 @@ h1, h2, h3, h4{
 svg{fill:currentColor;}
 
 .region_main_settings_menu_proxy{background-color:transparent;}
+/***************************************************************************/
+/*** Content - Listen ***/
+.subcategories > *{
+    padding:1rem .5rem;
+    background:rgba( $white, .7 );
+    margin:1rem 0;
+}
+
+/** Content Login **/
+#page-login-index{
+    #region-main .card-title > h2{
+        background: url('http://dev.overflow-hillen.de/files/logo-subline-front.svg') no-repeat center center / contain;/** Todo Pfad ändern **/
+        > img {opacity: 0;}
+    }
+}

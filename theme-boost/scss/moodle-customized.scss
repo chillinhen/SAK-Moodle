@@ -94,11 +94,8 @@ $breadcrumb-divider-rtl: "/" !default;
     margin-top:0;
 }
 @mixin flexbox{
-    display: -webkit-box; 
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex; 
-    display: flex;
+    display:-ms-flexbox;
+    display:flex;
 }
 @mixin flex($item){
     -webkit-box-flex: $item;   /* OLD - iOS 6-, Safari 3.1-6 */         /* For old syntax, otherwise collapses. */
@@ -162,8 +159,6 @@ $breadcrumb-divider-rtl: "/" !default;
 
 // Import everything.
 @import "moodle";
-
-
 /** SAK Typography ***/
 html, body{
     text-rendering: optimizeLegibility;
@@ -204,6 +199,18 @@ h3{
         border:0;
         color:white;
     }
+}
+.numberofcourse{
+    background: $brand-primary;
+    color: $white;
+    display: inline-flex;
+    padding: .25rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    border-radius: 1rem;
 }
 /*** Icons ***/
 /** reset first ***/
@@ -359,10 +366,10 @@ h3{
 [class*="frontpage-course-list"]{
     h3 {
         width:100%;
-/*        &:before{
-            @include icon-style(#000);
-            content: "\f114";
-        }*/
+        /*        &:before{
+                    @include icon-style(#000);
+                    content: "\f114";
+                }*/
     }
 }
 
@@ -449,9 +456,36 @@ a{
         @include kacheln;
     }
 }
-#region-main.larger{
+#region-main{
+    .summary{
+        float: left !important;
+        width:100%;
+    }
+    .larger{
     .summary, .teachers{display:none;}
+    
+    #frontpage-course-list .coursebox .content{
+        height:0;
+        width:100%;
+        padding-bottom: 66%;
+        position:relative;
+        @include flexbox;
+        flex-direction: column;
+        overflow: hidden;
+        .courseimage{
+            position: absolute; 
+            height: 100%; 
+            width: 100%; 
+            left: 0; 
+            top: 0;
+        }
+        .courseimage{order:1;}
+        .summary{order:2;}
+        .teachers{order:3;}
+    }
 }
+}
+
 .coursebox{
     /*    @include shadow(0 0 0 1px, rgba(0,0,0,.2));*/
     margin-bottom: 14px;
@@ -518,11 +552,18 @@ a{
 svg{fill:currentColor;}
 
 .region_main_settings_menu_proxy{background-color:transparent;}
-
+/***************************************************************************/
 /*** Content - Listen ***/
 .subcategories > *{
-padding:1rem .5rem;
-background:rgba( $white, .7 );
-margin:1rem 0;
+    padding:1rem .5rem;
+    background:rgba( $white, .7 );
+    margin:1rem 0;
 }
 
+/** Content Login **/
+#page-login-index{
+    #region-main .card-title > h2{
+        background: url('http://logo.spraachen.work/logo-subline-front.svg') no-repeat center center / contain;/** Todo Pfad ändern **/
+        > img {opacity: 0;}
+    }
+}

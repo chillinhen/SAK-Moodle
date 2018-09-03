@@ -1,0 +1,16 @@
+h3.coursename{
+    font-family:inherit;
+}
+
+.admintable{
+    .cell.c5{
+        display:-ms-flexbox;
+        display:flex;
+    }
+}
+
+[data-region="blocks-column"] .content{
+    padding-left:2rem;
+    a .icon{display:none;}
+}
+
