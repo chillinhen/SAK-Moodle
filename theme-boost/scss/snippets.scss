@@ -1,16 +1,17 @@
-h3.coursename{
-    font-family:inherit;
+.course-content ul.topics li.section .summary, 
+.course-content ul.weeks li.section .summary, 
+.course-content ul.topics li.section .content>.availabilityinfo, 
+.course-content ul.weeks li.section .content>.availabilityinfo
+.section .activity .availabilityinfo{
+    margin-left:0;
+    border:1px dashed red;
 }
 
-.admintable{
-    .cell.c5{
-        display:-ms-flexbox;
-        display:flex;
+td{
+    tr:nth-child(even) &{
+        background-color: lighten($gray-light,50%);
+        x-color:white;
     }
+    tr &:first-child{font-weight:700;}
+    ul, li{list-style: none;}
 }
-
-[data-region="blocks-column"] .content{
-    padding-left:2rem;
-    a .icon{display:none;}
-}
-

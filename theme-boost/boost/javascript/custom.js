@@ -1,28 +1,29 @@
 require(['jquery'], function ($) {
 //alert('cache löschen');
     // Thumbnails
-    var drawer = $('button[aria-controls="nav-drawer"]');
-        var thumbParent = $('#region-main');
-
-        if (drawer.attr('aria-expanded') === 'false') {
-            thumbParent.addClass('larger');
-        } else {
-            thumbParent.removeClass('larger');
-        }
+    //var drawer = $('button[aria-controls="nav-drawer"]');
+//        var drawer = $('#nav-drawers')
+//        var thumbParent = $('#region-main');
+//
+//        if (drawer.attr('aria-hiddens') === 'false') {
+//            thumbParent.addClass('larger');
+//        } else {
+//            thumbParent.removeClass('larger');
+//        }
 
         
         
-    if ($(window).width() <= 1199)
-    {
-        drawer.click(function () {
-            thumbParent.toggleClass('larger');
-        });
-    }
-    if ($(window).width() >= 1200)
-    {
-        thumbParent.addClass('larger');
-        console.log('large Display');
-    }
+//    if ($(window).width() <= 1199)
+//    {
+//        drawer.click(function () {
+//            thumbParent.toggleClass('larger');
+//        });
+//    }
+//    if ($(window).width() >= 1200)
+//    {
+//        thumbParent.addClass('larger');
+//        console.log('large Display');
+//    }
 
     //Order Thumbnails Content
     var thumbnail = $('.coursebox > .content > .courseimage');

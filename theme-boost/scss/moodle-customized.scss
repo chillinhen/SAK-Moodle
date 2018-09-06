@@ -155,6 +155,9 @@ $breadcrumb-divider-rtl: "/" !default;
         }
     }
 }
+@mixin list{
+    display:block;
+}
 
 
 // Import everything.
@@ -187,12 +190,16 @@ h1, h2, h3, h4 {
 }
 h3{
     font-size:1.5rem;
+    &[class*="name"]{
+    font-family:inherit;/** Todo Delete ???*/
 }
+}
+
 /*** Buttons ***/
 .btn-secondary, .btn-default{
     background-color: $brand-primary;
     border-color:darken($brand-primary,25%);
-    color:white;
+    color:white !important;
     [data-region="drawer-toggle"] &{border:0;}
     &:hover, &:focus, &:active{
         background-color:$light-hover-color;
@@ -343,6 +350,10 @@ h3{
     }
 
 }
+[data-region="blocks-column"] .content{
+    padding-left:2rem;
+    a .icon{display:none;}
+}
 
 //Icons in den Überschriften
 #page-header h1:before{
@@ -366,14 +377,10 @@ h3{
 [class*="frontpage-course-list"]{
     h3 {
         width:100%;
-        /*        &:before{
-                    @include icon-style(#000);
-                    content: "\f114";
-                }*/
     }
 }
 
-/*** Gen. Layout  - Colors ***/
+/*** Gen. Layout  - Colors, Logo etc ***/
 header.navbar-static-top{
     background-color: $brand-primary;
     .navbar-nav .nav-link,
@@ -387,6 +394,9 @@ header.navbar-static-top{
         -webkit-filter: brightness(5); /* Safari 6.0 - 9.0 */
         filter: brightness(5);
     }
+}
+#page-header .logo img {
+    max-height: 100px;
 }
 .card{
     background-color:transparent;
@@ -449,10 +459,17 @@ a{
     }
 }
 /*** Start Layout Thumbnails ***/
-[class*="frontpage-course-list"]{
+.frontpage-course-list-enrolled{
     display:block;
-
-    #region-main.larger &{
+    @media screen and (min-width:992px) and (max-width:1365px){
+        body.pagelayout-frontpage &{
+            @include kacheln;
+        }
+        body.pagelayout-frontpage.drawer-open-left &{
+            @include list;
+        } 
+    }
+    @media screen and (min-width:1365px){
         @include kacheln;
     }
 }
@@ -515,6 +532,37 @@ a{
             }
         }
     }
+}
+/** Dashboard***/
+.pagelayout-mydashboard .card,
+.coursebox{
+    background-color:rgba(255,255,255,.75) !important;
+    padding:.5rem;
+}
+
+/** Specific Layout - Tables etc **/
+.admintable{
+    .cell.c5{
+        display:-ms-flexbox;
+        display:flex;
+    }
+}
+.dimmed_text{
+    &, & *, &a{color:$body-color};
+}
+.mod-indent-outer{
+    padding:0 !important;
+    margin-bottom: 2em;
+    display: block;
+}
+
+.tag{
+    font-weight: 400;
+    font-size: 85%;
+    padding:.5em .8em;
+    
+    &.tag-info{background-color: $brand-primary;}
+    .activity &{float:right;}
 }
 /** Navigation **/
 .tab-style{
