@@ -7,11 +7,36 @@
     border:1px dashed red;
 }
 
-td{
-    tr:nth-child(even) &{
-        background-color: lighten($gray-light,50%);
-        x-color:white;
+.summary {
+    
+    .topics li:first-child &{
+        margin: 0 0 2rem 0;
+        > *{
+            font-style:italic;
+            padding: 1em;
+            background:rgba(255,255,255,.75);
+        }
     }
-    tr &:first-child{font-weight:700;}
-    ul, li{list-style: none;}
+    #region-main & + ul.section {
+    margin: 0;
+}
+}
+
+.editing .section .activity:hover{
+    background-color: transparent;
+    cursor:pointer;
+}
+
+.mod-indent-outer{
+margin-bottom:.25em;
+}
+.section li.activity{
+    padding:.5em;
+}
+.section li.activity:nth-child(even){
+    background:rgba(255,255,255,.5);
+}
+.section li.activity.label{
+    background-color: transparent;
+    font-weight:600;
 }

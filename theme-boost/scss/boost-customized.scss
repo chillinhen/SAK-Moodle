@@ -10,6 +10,7 @@ $gray-lightest:             #f7f7f9 !default;
 $white:                     #fff !default;
 
 $brand-primary:             #2466A6 !default;
+$brand-secondary:           #333 !default;
 $brand-success:             #77b300 !default;
 $brand-warning:             #ff8800 !default;
 $brand-danger:              #ff4136 !default;
@@ -191,8 +192,16 @@ h1, h2, h3, h4 {
 h3{
     font-size:1.5rem;
     &[class*="name"]{
-    font-family:inherit;/** Todo Delete ???*/
+        font-family:inherit;/** Todo Delete ???*/
+    }
 }
+
+h4{
+    font-size: 1.25rem;
+    font-weight: 600 !important;
+    text-transform: none;
+    color:$body-color;
+    [class*="col"] > &{margin:0 !important; }
 }
 
 /*** Buttons ***/
@@ -229,9 +238,16 @@ h3{
 
 #nav-drawer{
     [data-key]:before{
-        @include icon-style(#fff);
-        content: "\f114";
+        @include icon-style(#fff); 
     }
+}
+body.pagelayout-course #nav-drawer [data-key]:before{
+    content: "\f105";
+}
+body:not(.pagelayout-course) #nav-drawer [data-key]:before{
+    content: "\f114";
+}
+body[class*="pagelayout-"] #nav-drawer {
     [data-key="home"]{
         &:before{
             content: "\f039";  
@@ -254,7 +270,7 @@ h3{
         content: "\f085";
     }
     [data-key="participants"]:before{
-        content: "\f007";
+        content: "\f007" !important;
     }
     [data-key="1"]:before{
         content: "\f0a3";
@@ -479,28 +495,28 @@ a{
         width:100%;
     }
     .larger{
-    .summary, .teachers{display:none;}
-    
-    #frontpage-course-list .coursebox .content{
-        height:0;
-        width:100%;
-        padding-bottom: 66%;
-        position:relative;
-        @include flexbox;
-        flex-direction: column;
-        overflow: hidden;
-        .courseimage{
-            position: absolute; 
-            height: 100%; 
-            width: 100%; 
-            left: 0; 
-            top: 0;
+        .summary, .teachers{display:none;}
+
+        #frontpage-course-list .coursebox .content{
+            height:0;
+            width:100%;
+            padding-bottom: 66%;
+            position:relative;
+            @include flexbox;
+            flex-direction: column;
+            overflow: hidden;
+            .courseimage{
+                position: absolute; 
+                height: 100%; 
+                width: 100%; 
+                left: 0; 
+                top: 0;
+            }
+            .courseimage{order:1;}
+            .summary{order:2;}
+            .teachers{order:3;}
         }
-        .courseimage{order:1;}
-        .summary{order:2;}
-        .teachers{order:3;}
     }
-}
 }
 
 .coursebox{
@@ -534,7 +550,7 @@ a{
     }
 }
 /** Dashboard***/
-.pagelayout-mydashboard .card,
+/*.pagelayout-mydashboard .card,*/
 .coursebox{
     background-color:rgba(255,255,255,.75) !important;
     padding:.5rem;
@@ -547,12 +563,20 @@ a{
         display:flex;
     }
 }
+td{
+    tr:nth-child(even) &{
+        background-color: lighten($gray-light,50%);
+        x-color:white;
+    }
+    tr &:first-child{font-weight:700;}
+    ul, li{list-style: none;}
+}
 .dimmed_text{
     &, & *, &a{color:$body-color};
 }
 .mod-indent-outer{
     padding:0 !important;
-    margin-bottom: 2em;
+    margin-bottom:.23em;
     display: block;
 }
 
@@ -560,7 +584,7 @@ a{
     font-weight: 400;
     font-size: 85%;
     padding:.5em .8em;
-    
+
     &.tag-info{background-color: $brand-primary;}
     .activity &{float:right;}
 }
@@ -594,7 +618,18 @@ a{
     }
 }
 /**** Buttons ****/
-.dropdown-toggle::after{border-top-color:white !important;}
+.dropdown-toggle{
+/*    #region-main &{
+        @extend .btn;
+        @extend .btn-secondary;
+    }*/
+    &::after{
+        border-top-color:currentColor !important;
+    }
+    .menubar &::after{
+        border-top-color:currentColor !important;
+    }
+}
 .btn-secondary > *{color:white !important;}
 .btn-secondary.checked > * {color:black !important;}
 svg{fill:currentColor;}
