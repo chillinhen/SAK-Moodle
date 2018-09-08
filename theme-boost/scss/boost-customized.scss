@@ -191,8 +191,11 @@ h1, h2, h3, h4 {
 }
 h3{
     font-size:1.5rem;
+    &[class*="section-title"],
     &[class*="name"]{
         font-family:inherit;/** Todo Delete ???*/
+        font-weight:400;
+        text-transform: none;
     }
 }
 
@@ -244,7 +247,7 @@ h4{
 body.pagelayout-course #nav-drawer [data-key]:before{
     content: "\f105";
 }
-body:not(.pagelayout-course) #nav-drawer [data-key]:before{
+body:not(.pagelayout-course) #nav-drawer .list-group.m-t-1 [data-key]:before{
     content: "\f114";
 }
 body[class*="pagelayout-"] #nav-drawer {
@@ -489,11 +492,8 @@ a{
         @include kacheln;
     }
 }
+
 #region-main{
-    .summary{
-        float: left !important;
-        width:100%;
-    }
     .larger{
         .summary, .teachers{display:none;}
 
@@ -555,7 +555,43 @@ a{
     background-color:rgba(255,255,255,.75) !important;
     padding:.5rem;
 }
-
+/** Courses **/
+.summary {
+    .topics li:first-child &{
+        margin: 0 0 2rem 0;
+        > *{
+            font-style:italic;
+            padding: 1em;
+            background:rgba(255,255,255,.75);
+        }
+    }
+    #region-main & + ul.section {
+        margin: 0;
+        padding:1em 0;
+    }
+}
+.section .activity{
+    padding:.5em 0;
+    &:nth-child(even){
+        background:rgba(255,255,255,.5);
+    }
+    &.label{
+        background-color: transparent;
+        p{
+            font-weight:600;
+            &:first-child{
+                margin-top:2em;
+            }
+        }
+    }
+    .editing &:hover{
+         background-color: transparent;
+    cursor:pointer;
+    }
+    h3{
+        @extend h4;
+    }
+}
 /** Specific Layout - Tables etc **/
 .admintable{
     .cell.c5{
@@ -576,7 +612,7 @@ td{
 }
 .mod-indent-outer{
     padding:0 !important;
-    margin-bottom:.23em;
+    margin-bottom:.25em;
     display: block;
 }
 
