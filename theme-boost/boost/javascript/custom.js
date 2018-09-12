@@ -43,4 +43,12 @@ require(['jquery'], function ($) {
     
     // Remove SVG in Community Button
     $('[data-region="blocks-column"] [data-block="community"] .content a').addClass('btn btn-primary');
+    
+    // Twesak Pagination
+    $('.section-navigation [class*="mdl"] > a').each(function () {
+        $(this).children('[class*="arrow"]').remove();
+        $(this).wrapInner('<span></span>');
+        var textLink = $(this).children('span').html();
+        $(this).attr("title", textLink);
+    });
 });

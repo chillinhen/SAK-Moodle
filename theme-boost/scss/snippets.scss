@@ -1,0 +1,10 @@
+
+
+.tag{
+    color:$brand-primary;
+    .availabilityinfo.ishidden &{display:none;}
+    &.tag-info{background-color: transparent;}
+    &:hover{
+        cursor: pointer;
+    }
+}

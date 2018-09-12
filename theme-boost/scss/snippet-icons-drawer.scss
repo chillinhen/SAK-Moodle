@@ -1,0 +1,49 @@
+body.pagelayout-course #nav-drawer [data-key]:before{
+    content: "\f105";
+}
+body:not(.pagelayout-course) #nav-drawer .list-group.m-t-1 [data-key]:before{
+    content: "\f114";
+}
+body[class*="pagelayout-"] #nav-drawer {
+    [data-key="home"]{
+        &:before{
+            content: "\f039";  
+        }
+        &:first-child:before{
+            content: "\f015";
+        }
+    }
+    [data-key="calendar"]:before{
+        content: "\f133";
+    }
+    [data-key="privatefiles"]:before{
+        content: "\f0c5";
+    }
+    [data-key="coursehome"]:before,
+        [data-key="mycourses"]:before{
+        content: "\f07c";
+    }
+    [data-key="sitesettings"]:before{
+        content: "\f085";
+    }
+    [data-key="participants"]:before{
+        content: "\f007" !important;
+    }
+    [data-key="1"]:before{
+        content: "\f0a3";
+    }
+    [data-key="grades"]:before{
+        content: "\f005";
+    }
+    [data-key="addblock"]:before{
+        content: "\f067";
+    }
+    .list-group-item-action.font-weight-bold[data-key]:first-child:before{
+        @include icon-style(#fff);
+        content: "\f07c";
+    }
+    .list-group-item-action.font-weight-bold[data-key]:before{
+        @include icon-style(#fff);
+        content: "\f07b";
+    }
+}

@@ -109,6 +109,14 @@ $breadcrumb-divider-rtl: "/" !default;
     -moz-box-shadow: $width $col;
     box-shadow: $width $col;
 }
+@mixin intro-style{
+    > *{
+        font-style:italic;
+        padding: 1em;
+        background:transparent !important;
+        border-bottom:1px dashed $gray-light;
+    }
+}
 /** Dashboard ***/
 @mixin kacheln{
     display:flex;
@@ -244,13 +252,12 @@ h4{
         @include icon-style(#fff); 
     }
 }
-body.pagelayout-course #nav-drawer [data-key]:before{
-    content: "\f105";
-}
-body:not(.pagelayout-course) #nav-drawer .list-group.m-t-1 [data-key]:before{
-    content: "\f114";
-}
-body[class*="pagelayout-"] #nav-drawer {
+//icons in der Sidebar
+#nav-drawer{
+    [data-key]:before{
+        @include icon-style(#fff);
+        content: "\f114";
+    }
     [data-key="home"]{
         &:before{
             content: "\f039";  
@@ -273,7 +280,7 @@ body[class*="pagelayout-"] #nav-drawer {
         content: "\f085";
     }
     [data-key="participants"]:before{
-        content: "\f007" !important;
+        content: "\f007";
     }
     [data-key="1"]:before{
         content: "\f0a3";
@@ -293,7 +300,8 @@ body[class*="pagelayout-"] #nav-drawer {
         content: "\f07b";
     }
 }
-//icons in der Sidebar
+
+
 .card-title{
     [data-block] &:before{
         @include icon-style(#000);
@@ -556,40 +564,54 @@ a{
     padding:.5rem;
 }
 /** Courses **/
+#intro{@include intro-style;}
 .summary {
+    .topics li.section{
+        margin-left: 0;
+    }
     .topics li:first-child &{
-        margin: 0 0 2rem 0;
-        > *{
-            font-style:italic;
-            padding: 1em;
-            background:rgba(255,255,255,.75);
-        }
+        margin: 0 0 2rem 0 !important;
+        @include intro-style;
     }
     #region-main & + ul.section {
         margin: 0;
         padding:1em 0;
     }
 }
-.section .activity{
-    padding:.5em 0;
-    &:nth-child(even){
-        background:rgba(255,255,255,.5);
-    }
-    &.label{
-        background-color: transparent;
-        p{
-            font-weight:600;
-            &:first-child{
-                margin-top:2em;
+.section {
+    &.activity{
+        padding:.5em 0;
+        &:nth-child(even){
+            background:rgba(255,255,255,.5);
+        }
+        &.label{
+            background-color: transparent;
+            p{
+                font-weight:600;
+                &:first-child{
+                    margin-top:2em;
+                }
             }
         }
+        .editing &:hover{
+            background-color: transparent;
+            cursor:pointer;
+        }
+        h3{
+            @extend h4;
+        }
     }
-    .editing &:hover{
-         background-color: transparent;
-    cursor:pointer;
+    li.activity {
+        padding: .2em 0 .2rem 1rem !important;
     }
-    h3{
-        @extend h4;
+    &.current{
+        border:0;
+        /*    background: lighten($brand-info,15%);*/
+        background:rgba(255,255,255,.75);
+        padding:1em;
+        &:before{
+            display:none;
+        }
     }
 }
 /** Specific Layout - Tables etc **/
@@ -620,10 +642,27 @@ td{
     font-weight: 400;
     font-size: 85%;
     padding:.5em .8em;
-
-    &.tag-info{background-color: $brand-primary;}
+    color:$brand-primary;
+    .availabilityinfo.ishidden &{display:none;}
+    &.tag-info{background-color: transparent;}
+    &:hover{
+        cursor: pointer;
+    }
     .activity &{float:right;}
 }
+.availabilityinfo.ishidden{
+    display: inline-block;
+    float: right;
+    &:before{
+    @include icon-style($brand-primary);
+    content: "\f070";
+    &:hover{
+        cursor: pointer;
+        + .tag{display:block !important;}
+    }
+}
+}
+
 /** Navigation **/
 .tab-style{
     color: white !important;
@@ -653,12 +692,87 @@ td{
         color:#000 !important;
     }
 }
+
+/*** Course Paging ***/
+.section-navigation{
+    width: 100%;
+    display: flex !important;
+    display: -ms-flexbox !important;
+    justify-content: space-between;
+    align-items: center;
+    border:{
+        width:1px 0;
+        style:solid;
+        color:$gray-lighter;
+    }
+
+    .mdl-left{order:1;}
+    .mdl-right{order:3;}
+    .mdl-align,
+    h3.sectionname{
+        order:2;  
+    }
+    h3.sectionname{
+
+        margin:0;
+        font-size: 1rem;
+    }
+
+    [class*="mdl"]{
+        display: inline-block;
+        float:none; 
+        > a {
+            width:inherit;
+            height:inherit;
+            display: inherit;
+            position:relative;
+            &:hover{text-decoration:none;}
+            > span{
+                display:none;
+            }
+        }
+    }
+    .mdl-right > a::before,
+    .mdl-left > a::after{
+        content: attr(title);
+        display: none;
+        padding:15px;
+        min-width:120px;
+        background: rgb(252, 252, 212);
+        @include shadow(0 0 2px 0, rgba(0,0,0,.5));
+        position:absolute;
+        z-index:999;
+        bottom:-2rem;
+    }
+
+    .mdl-left {
+        > a::before{
+            content:'◀';
+        }
+        > a:after{
+            left:1.25rem;
+        }
+    }
+    .mdl-right {
+        > a::after{
+            content:'▶';
+        }
+        > a:before{
+            right:1.25rem;
+        }
+    }
+    .mdl-right > a:hover::before,
+        .mdl-left > a:hover::after{
+        display:inline-block;
+    }
+}
 /**** Buttons ****/
 .dropdown-toggle{
-/*    #region-main &{
-        @extend .btn;
-        @extend .btn-secondary;
-    }*/
+    /*    #region-main &{
+            @extend .btn;
+            @extend .btn-secondary;
+        }*/
+    header .action-menu &{color:$white;}
     &::after{
         border-top-color:currentColor !important;
     }
