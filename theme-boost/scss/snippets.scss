@@ -1,10 +1,10 @@
-
-
-.tag{
-    color:$brand-primary;
-    .availabilityinfo.ishidden &{display:none;}
-    &.tag-info{background-color: transparent;}
-    &:hover{
-        cursor: pointer;
-    }
+#region-main-box > #region-main{
+&, & > > .card-block{width:inherit;}
+}
+.gradeparent{
+width:inherit;
+overflow:hidden;
+}
+.gradereport-grader-table{
+width:100%;
 }

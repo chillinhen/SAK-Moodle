@@ -175,7 +175,7 @@ $breadcrumb-divider-rtl: "/" !default;
 html, body{
     text-rendering: optimizeLegibility;
 }
-body {   
+body {
     font-size:$font-size-root;
     font-weight:400;
     line-height: $font-size-height;
@@ -249,7 +249,7 @@ h4{
 
 #nav-drawer{
     [data-key]:before{
-        @include icon-style(#fff); 
+        @include icon-style(#fff);
     }
 }
 //icons in der Sidebar
@@ -260,7 +260,7 @@ h4{
     }
     [data-key="home"]{
         &:before{
-            content: "\f039";  
+            content: "\f039";
         }
         &:first-child:before{
             content: "\f015";
@@ -387,7 +387,7 @@ h4{
     @include icon-style(#fff);
 
     #page-course-view-topics &{
-        content: "\f07c";  
+        content: "\f07c";
     }
     [id*="page-admin"] &{
         content: "\f085";
@@ -429,7 +429,7 @@ header.navbar-static-top{
     background-color:transparent;
     border:0;
     section[data-region="blocks-column"]{
-        background-color: #e5e5e4; 
+        background-color: #e5e5e4;
     }
     #page-header &{
         background-color:transparent;
@@ -494,7 +494,7 @@ a{
         }
         body.pagelayout-frontpage.drawer-open-left &{
             @include list;
-        } 
+        }
     }
     @media screen and (min-width:1365px){
         @include kacheln;
@@ -514,10 +514,10 @@ a{
             flex-direction: column;
             overflow: hidden;
             .courseimage{
-                position: absolute; 
-                height: 100%; 
-                width: 100%; 
-                left: 0; 
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                left: 0;
                 top: 0;
             }
             .courseimage{order:1;}
@@ -629,6 +629,17 @@ td{
     tr &:first-child{font-weight:700;}
     ul, li{list-style: none;}
 }
+/*** Grade Tables ***/
+.path-grade-report-grader #region-main {
+    &, & > .card-block{width:inherit !important;}
+
+    .gradeparent{
+    width:inherit;
+    overflow: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    }
+}
 .dimmed_text{
     &, & *, &a{color:$body-color};
 }
@@ -710,7 +721,7 @@ td{
     .mdl-right{order:3;}
     .mdl-align,
     h3.sectionname{
-        order:2;  
+        order:2;
     }
     h3.sectionname{
 
@@ -720,7 +731,7 @@ td{
 
     [class*="mdl"]{
         display: inline-block;
-        float:none; 
+        float:none;
         > a {
             width:inherit;
             height:inherit;
