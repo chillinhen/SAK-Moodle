@@ -18,7 +18,7 @@ $spacer: 1rem !default;
 $spacer-x: $spacer !default;
 $spacer-y: $spacer !default;
 $border-width: 1px !default; // Body
-$border-color: $gray-lighter;
+$border-color: lighten($gray-light,12%);
 $body-bg: #000;
 $body-color: #3a3a3a !default; // Typography
 $font-family-sans-serif: "Ubuntu", Arial, sans-serif !default;
@@ -1061,6 +1061,9 @@ svg {
   padding: 1rem 0.5rem;
   background: rgba($white, .7);
   margin: 1rem 0;
+}
+ol, ul{
+  #region-main &{}
 }
 /** Content Login **/
 #page-login-index {
