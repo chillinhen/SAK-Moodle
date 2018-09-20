@@ -1,10 +1,37 @@
-#region-main-box > #region-main{
-&, & > > .card-block{width:inherit;}
+.progress_bar{
+  .progress_bar{
+    position: relative;
+    padding-bottom: 3rem;
+    &:before,
+    .progress_bar_completed{
+      height:1.5rem;
+      padding: 2px 0 2px 5px;
+    }
+    &:before{
+      content:'';
+      display: block;
+      width:100%;
+      background-color: $gray-lightest;
+      position: absolute;
+      bottom:0;
+      -webkit-box-shadow:inset 0 0 2px 0 rgba(0,0,0,.25);
+      box-shadow:inset 0 0 2px 0 rgba(0,0,0,.25);
+    }
+
+    .progress_bar_completed{
+    /*background:$brand-primary;*/
+    background: repeating-linear-gradient(
+    -45deg,
+    $brand-primary,
+    $brand-primary 10px,
+    lighten($brand-primary,10%) 10px,
+    lighten($brand-primary,10%) 20px
+    );
+    &:before{
+    color:white;
+    position: absolute;
+    bottom:0;
+    }
+  }
 }
-.gradeparent{
-width:inherit;
-overflow:hidden;
-}
-.gradereport-grader-table{
-width:100%;
 }
