@@ -1,0 +1,30 @@
+.editing .section .activity.action-menu-shown {
+    background-color: #fafafa;
+}
+
+.course-content ul.topics li.section .summary,
+.course-content ul.weeks li.section .summary,
+.course-content ul.topics li.section .content>.availabilityinfo,
+.course-content ul.weeks li.section .content>.availabilityinfo
+.section .activity .availabilityinfo{
+    margin-left:0;
+    border:1px dashed red;
+}
+
+.course-content .current::before{
+    display: none;
+}
+.course-content .section-summary .section-title{
+    border-bottom:1px solid #ccc;
+    padding-bottom:.25rem;
+}
+.tag.tag-info{float:right;}
+
+
+li.activity.resource{
+    border:1px dashed red;
+}
+/******* *******/
+.course-content .section-summary .section-summary-activities .activity-count {
+  color: #373a3c !important;
+}

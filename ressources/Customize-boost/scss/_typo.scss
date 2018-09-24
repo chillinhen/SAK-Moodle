@@ -1,0 +1,85 @@
+/** SAK Typography ***/
+
+body,
+html {
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-size: $font-size-root;
+  font-weight: 400;
+  line-height: $font-size-height;
+  background: $body-bg url(http://www.spraachen.org/wp-content/uploads/2013/12/weltkarte.png) center top no-repeat/ cover;
+  background-attachment: scroll;
+  color: $body-color;
+}
+/*** Headlines ***/
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $headings-font-family-sans-serif;
+  color: $heading-text-color;
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-top: $paragraph-margin;
+  margin-bottom: $paragraph-margin * 2;
+
+  #page-header & {
+    color: $white;
+  }
+
+  #page-content & {
+    color: $heading-text-color;
+  }
+
+  > a {
+    color: inherit !important;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  [class*="frontpage-course-list"] {
+    width: 100%;
+  }
+  .section.activity &{font-size: 1rem;}
+  &[class*="section-title"],
+  &[class*="name"] {
+    font-family: inherit;
+    /** Todo Delete ???*/
+    font-weight: 400;
+    text-transform: none;
+  }
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600 !important;
+  text-transform: none;
+  color: $body-color;
+
+  [class*="col"] > & {
+    margin: 0 !important;
+  }
+}
+
+a {
+  .categoryname &,
+  .coursename &.dimmed {
+    color: $gray-dark !important;
+  }
+}
+.dimmed_text {
+  &,
+  & *,
+  &a {
+    color: $body-color;
+  };
+}

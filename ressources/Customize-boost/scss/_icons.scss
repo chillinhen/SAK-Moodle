@@ -1,0 +1,244 @@
+/*** Icons ***/
+/** reset first ***/
+
+.coursebox > .info > .coursename a {
+  background-image: none;
+  padding: 0;
+}
+
+.list-group-item .media-left {
+  display: none;
+}
+
+#nav-drawer {
+  [data-key]:before {
+    @include icon-style(#fff);
+  }
+}
+//icons in der Sidebar
+
+#nav-drawer {
+  [data-key]:before {
+    @include icon-style(#fff);
+    content: "\f114";
+  }
+
+  [data-key="home"] {
+    &:before {
+      content: "\f039";
+    }
+
+    &:first-child:before {
+      content: "\f015";
+    }
+  }
+
+  [data-key="calendar"]:before {
+    content: "\f133";
+  }
+
+  [data-key="privatefiles"]:before {
+    content: "\f0c5";
+  }
+
+  [data-key="coursehome"]:before,
+  [data-key="mycourses"]:before {
+    content: "\f07c";
+  }
+
+  [data-key="sitesettings"]:before {
+    content: "\f085";
+  }
+
+  [data-key="participants"]:before {
+    content: "\f007";
+  }
+
+  [data-key="1"]:before {
+    content: "\f0a3";
+  }
+
+  [data-key="grades"]:before {
+    content: "\f005";
+  }
+
+  [data-key="addblock"]:before {
+    content: "\f067";
+  }
+
+  .list-group-item-action.font-weight-bold[data-key]:first-child:before {
+    @include icon-style(#fff);
+    content: "\f07c";
+  }
+
+  .list-group-item-action.font-weight-bold[data-key]:before {
+    @include icon-style(#fff);
+    content: "\f07b";
+  }
+}
+
+.card-title {
+  [data-block] &:before {
+    @include icon-style(#000);
+  }
+
+  [data-block="calendar_month"] &:before {
+    content: "\f073";
+  }
+
+  [data-block="admin_bookmarks"] &:before {
+    content: "\f02e";
+  }
+
+  [data-block="blog_recent"] &:before {
+    content: "\f1ea";
+  }
+
+  [data-block="calendar_upcoming"] &:before {
+    content: "\f073";
+  }
+
+  [data-block="blog_menu"] &:before {
+    content: "\f022";
+  }
+
+  [data-block="blog_tags"] &:before {
+    content: "\f02c";
+  }
+
+  [data-block="community"] &:before {
+    content: "\f0c0";
+  }
+
+  [data-block="settings"] &:before {
+    content: "\f085";
+  }
+
+  [data-block="globalsearch"] &:before {
+    content: "\f002";
+  }
+
+  [data-block="glossary_random"] &:before {
+    content: "\f044";
+  }
+
+  [data-block="course_list"] &:before {
+    content: "\f12e";
+  }
+
+  [data-block="comments"] &:before {
+    content: "\f086";
+  }
+
+  [data-block="course_summary"] &:before {
+    content: "\f15c";
+  }
+
+  [data-block="private_files"] &:before {
+    content: "\f0c5";
+  }
+
+  [data-block="messages"] &:before {
+    content: "\f0f3";
+  }
+
+  [data-block="navigation"] &:before {
+    content: "\f14e";
+  }
+
+  [data-block="online_users"] &:before {
+    content: "\f017";
+  }
+
+  [data-key="sitesettings"] &:before {
+    content: "\f085";
+  }
+
+  [data-block="mentees"] &:before {
+    content: "\f19d";
+  }
+
+  [data-block="participants"] &:before {
+    content: "\f0c0";
+  }
+
+  [data-block="news_items"] &:before {
+    content: "\f1ea";
+  }
+
+  [data-block="search_forums"] &:before {
+    content: "\f0ea";
+  }
+
+  [data-block="lp"] &:before {
+    content: "\f0ca"; // = Lernpläne
+  }
+}
+
+[data-region="blocks-column"] .content {
+  padding-left: 2rem;
+
+  a .icon {
+    display: none;
+  }
+}
+//Icons in den Überschriften
+
+#page-header h1:before {
+  @include icon-style(#fff);
+
+  #page-course-view-topics & {
+    content: "\f07c";
+  }
+
+  [id*="page-admin"] & {
+    content: "\f085";
+  }
+}
+
+#site-news-forum h2:before {
+  @include icon-style(#000);
+  content: "\f075" !important;
+}
+
+#frontpage-course-list h2:before {
+  @include icon-style(#000);
+  content: "\f07c" !important;
+}
+
+li.activity.current .activityinstance > a {
+  color: white;
+  line-height: 1;
+  padding: 0.5rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  img.activityicon {
+    display: none;
+  }
+
+  &:before {
+    @include icon-style(currentColor);
+    content: '\f086';
+    margin-right: 2rem;
+  }
+}
+.availabilityinfo.ishidden {
+  display: inline-block;
+  float: right;
+
+  &:before {
+    @include icon-style($brand-primary);
+    content: "\f070";
+
+    &:hover {
+      cursor: pointer;
+
+      + .tag {
+        display: block !important;
+      }
+    }
+  }
+}

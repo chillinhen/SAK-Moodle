@@ -1,0 +1,67 @@
+/*** Buttons ***/
+.btn-default,
+.btn-secondary {
+  background-color: $brand-primary;
+  border-color: darken($brand-primary,25%);
+  color: white !important;
+
+  [data-region="drawer-toggle"] & {
+    border: 0;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $light-hover-color;
+    border: 0;
+    color: white;
+  }
+}
+.btn-secondary{
+  > *{color: white !important;}
+  &.checked > * {
+    color: black !important;
+  }
+  &:active:hover,
+  &.active:hover{background-color:#000;}
+}
+.btn-default{
+  &:active:hover{background-color:#000;}
+}
+svg {
+  fill: currentColor;
+}
+
+.numberofcourse {
+  background: $brand-primary;
+  color: $white;
+  display: inline-flex;
+  padding: 0.25rem;
+  height: 1.2rem;
+  width: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  border-radius: 1rem;
+}
+.dropdown-toggle {
+
+  header .action-menu & {
+    color: $white;
+  }
+
+  &::after {
+    border-top-color: currentColor !important;
+  }
+
+  .menubar &::after {
+    border-top-color: currentColor !important;
+  }
+}
+.mod_quiz-next-nav{
+  @extend .btn !optional;
+  @extend .btn-secondary !optional;
+}
+.region_main_settings_menu_proxy {
+  background-color: transparent;
+}
