@@ -1,0 +1,50 @@
+.coursebox {
+  margin: .75rem .5rem;
+}
+
+#frontpage-course-list:first-child .coursebox .content {
+  height: 0;
+  width: 100%;
+  padding-bottom: 66%;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#frontpage-course-list:first-child .coursebox .content .courseimage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+#frontpage-course-list:first-child .coursebox .content .courseimage img {
+  width: 100% !important;
+  height: auto !important;
+  max-width: none;
+  max-height: none;
+}
+
+#frontpage-course-list:first-child .coursebox .content .courseimage {
+  order: 1;
+}
+
+#frontpage-course-list:first-child .coursebox .content .summary {
+  order: 2;
+}
+
+#frontpage-course-list:first-child .coursebox .content .teachers {
+  order: 3;
+}
+
+#region-main .summary,
+#region-main .teachers {
+  display: none;
+}
+
+#frontpage-course-list {
+  border: 1px solid red;
+}

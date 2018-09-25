@@ -1,0 +1,55 @@
+.frontpage-course-list-enrolled{
+
+    .coursebox{
+      margin:.75rem .5rem;
+      .courseimage {
+        order: 1;
+        height: 0;
+        width: 100%;
+        padding:0 0 66% 0;
+        margin: 0;
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        img{
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          max-width: none;
+          max-height: none;
+          left: 0;
+          top: 0;
+        }
+    }
+
+    .summary {
+      order: 2;
+      width:100% !important;
+      float:none !important;
+      margin: 0;
+    }
+
+    .teachers {
+      order: 3;
+    }
+  }
+}
+.frontpage-course-list-all{
+  border:1px solid red;
+  .coursebox{
+    margin:0 0 .75rem 0;
+    display: flex;
+    display: -ms-flexbox;
+    align-items: baseline;
+    justify-content: flex-start;
+    .info{order: 2;}
+    .content{order: 1;}
+    .summary,
+    .teachers {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,175 @@
+/*** NAVIGATION ***/
+.navbar-static-top { /** ToDo: Evtl. auch Navigation ???**/
+  background-color: $brand-primary;
+  .navbar-nav .nav-link,
+  .site-name,
+  .usertext {
+    color: white !important;
+  }
+}
+
+.navbar-brand.has-logo {
+  img {
+    -webkit-filter: brightness(5);
+    filter: brightness(5);
+  }
+}
+
+
+[data-region="drawer"] {
+  padding: 0;
+  background-color: rgba($brand-primary, .7);
+
+  .list-group-item {
+    background-color: inherit;
+    border: {
+      color: #eee;
+      width: 1px 0 0 0;
+      style: solid;
+    }
+
+    &,
+    &.list-group-item-action {
+      color: white;
+    }
+  }
+}
+.list-group m-t-1 {
+  .list-group-item.list-group-item-action {
+    border: 0;
+    background-color: darken($brand-primary, 30%);
+  }
+}
+/*** Tabs ***/
+.tab-style {
+  color: white !important;
+  background-color: #000;
+  border-color: transparent;
+}
+
+.nav-tabs {
+  .nav-item {
+    .open {
+    @extend .tab-style !optional;
+    }
+  }
+
+  .nav-link {
+    .nav-item.open &:hover {
+      @extend .tab-style !optional;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      @extend .tab-style !optional;
+    }
+
+    &.active {
+      color: white;
+    }
+  }
+}
+
+.action-menu .dropdown-item {
+  &,
+  & * {
+    color: #000 !important;
+  }
+}
+/*** Course Paging ***/
+.section-navigation {
+  width: 100%;
+  display: flex !important;
+  display: -ms-flexbox !important;
+  justify-content: space-between;
+  align-items: center;
+  border: {
+    width: 1px 0;
+    style: solid;
+    color: $gray-lighter;
+  }
+
+  .jumpmenu .custom-select {
+    width: 100%;
+  }
+
+  .mdl-left {
+    order: 1;
+  }
+
+  .mdl-right {
+    order: 3;
+  }
+
+  .mdl-align,
+  .sectionname {
+    order: 2;
+    margin-bottom: .5rem;
+  }
+
+  .sectionname {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  [class*="mdl"] {
+    display: inline-block;
+    float: none;
+
+    > a {
+      width: inherit;
+      height: inherit;
+      display: inherit;
+      position: relative;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      > span {
+        display: none;
+      }
+    }
+  }
+
+  .mdl-left > a::after,
+  .mdl-right > a::before {
+    content: attr(title);
+    display: none;
+    padding: 15px;
+    min-width: 120px;
+    background: rgb(252, 252, 212);
+    @include shadow(0 0 2px 0, rgba(0,0,0,.5));
+    position: absolute;
+    z-index: 999;
+    bottom: -2rem;
+  }
+
+  .mdl-left {
+    > a::before {
+      content: '◀';
+    }
+
+    > a:after {
+      left: 1.25rem;
+    }
+  }
+
+  .mdl-right {
+    > a::after {
+      content: '▶';
+    }
+
+    > a:before {
+      right: 1.25rem;
+    }
+  }
+
+  .mdl-left > a:hover::after,
+  .mdl-right > a:hover::before {
+    display: inline-block;
+  }
+}

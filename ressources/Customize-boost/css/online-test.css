@@ -1,0 +1,9 @@
+.quizinfo,
+#page-mod-quiz-view .generalbox#feedback{
+  border:1px solid red;
+  width: 70%;
+  margin:2rem auto;
+padding:1rem;
+text-align:center;
+border-radius: 1rem;
+}

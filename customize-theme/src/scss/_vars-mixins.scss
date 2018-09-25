@@ -1,0 +1,172 @@
+/*==================================VARIABLES==========================================*/
+// Colors
+$black: #000 !default;
+$gray-dark: #373a3c !default;
+$gray: #55595c !default;
+$gray-light: #d9e1e6 !default;
+$gray-lighter: #e9eef1 !default;
+$gray-lightest: #f7f7f9 !default;
+$white: #fff !default;
+$trans-white:rgba(255,255,255,.75);
+$brand-primary: #2466A6 !default;
+$brand-secondary: #333 !default;
+$brand-info: #7EA0C5;
+$brand-success: #77b300 !default;
+$brand-warning: #ff8800 !default;
+$brand-danger: #ff4136 !default;
+$brand-inverse: $gray-dark !default;
+$navbar-height: 50px !default; // Spacing
+$spacer: 1rem !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+$border-width: 1px !default; // Body
+$border-color: $gray-lighter;
+$body-bg: #000;
+$page-content:#f2f2f2;
+$body-color: #3a3a3a !default; // Typography
+$font-family-sans-serif: "Ubuntu", Arial, sans-serif !default;
+$headings-font-family-sans-serif: "Titillium Web", sans-serif;
+$font-size-root: 14px !default;
+$font-size-height: 150% !default;
+$paragraph-margin: $font-size-root;
+$text-color: $gray-dark;
+$heading-text-color: $brand-primary;
+$body-text-color:$text-color;
+$text-muted-color: lighten($text-color,25%);
+$light-hover-color: lighten($brand-primary,5%);
+$dark-hover-color: darken($brand-primary,10%); /* Margins & Paddings */
+$outer-grid: 2 * $font-size-root;
+$vertical-spacing: 2 * $font-size-root;
+$card-padding: 1rem; // Tables
+$table-bg: transparent !default;
+$table-bg-accent: #fafafa !default;
+$table-bg-hover: lighten($brand-primary, 55%) !default;
+$table-bg-active: $table-bg-hover !default;
+$table-border-color: #f4f4f4 !default; // Dropdowns
+$dropdown-border-color: #e2e2e2 !default;
+$dropdown-link-color: $body-color; // Navbar
+$navbar-light-color: rgba(0, 0, 0, .535) !default;
+$navbar-light-hover-color: $brand-primary !default;
+$navbar-light-active-color: $brand-primary !default; // Cards
+$card-border-radius: 0 !default;
+$card-border-color: rgba(238, 238, 238, 1) !default; // Breadcrumbs
+$breadcrumb-bg: transparent !default;
+$breadcrumb-padding-x: 0 !default;
+$breadcrumb-divider: "/" !default;
+$breadcrumb-divider-rtl: "/" !default;
+/*==================================MIXINS==========================================*/
+@mixin truncate($width) {
+  width: $width;
+  max-width: 100%;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+@mixin icon-style($col) {
+  color: $col;
+  display: block;
+  float: left;
+  font-family: FontAwesome;
+  margin-right: 0.5rem;
+  text-align: left;
+  border-radius: 0;
+  background-color: transparent;
+  margin-top: 0;
+}
+@mixin flexbox {
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin flex($item) {
+  -webkit-box-flex: $item;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  /* For old syntax, otherwise collapses. */
+  -webkit-flex: $item;
+  /* Safari 6.1+. iOS 7.1+, BB10 */
+  -ms-flex: $item;
+  /* IE 10 */
+  flex: $item;
+}
+@mixin shadow($width, $col) {
+  -webkit-box-shadow: $width $col;
+  -moz-box-shadow: $width $col;
+  box-shadow: $width $col;
+}
+@mixin intro-style {
+  > * {
+    font-style: italic;
+    padding: 1em;
+    background: transparent !important;
+    border-bottom: 1px dashed $gray-light;
+  }
+}
+/** Dashboard ***/
+@mixin kacheln {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > .coursebox {
+    flex-basis: calc(33% - 1rem);
+    display: flex;
+    flex-direction: column;
+
+    &.hasThumbnail {
+      .content {
+        order: 1;
+      }
+
+      .info {
+        order: 2;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+
+      .courseimage {
+        order: 1;
+      }
+
+      .summary {
+        float: none;
+      }
+
+      .teachers {
+        width: auto;
+      }
+    }
+
+    &:last-child {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+
+  .paging {
+    flex-basis: 100%;
+
+    &.paging-morelink {
+      margin: 2rem 0;
+
+      a {
+        background: $brand-primary;
+        padding: 0.75rem 2rem;
+        color: #fff;
+        text-transform: uppercase;
+
+        &:hover {
+          background: $light-hover-color;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+@mixin list {
+  display: block;
+}
