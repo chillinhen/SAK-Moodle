@@ -73,6 +73,7 @@ ol, ul{
 
 /*** StartSeite Layout Thumbnails ***/
 #frontpage-course-list {
+.frontpage-course-list-enrolled {
   display: block;
   @media screen and (min-width:992px) and (max-width:1365px) {
     body.pagelayout-frontpage & {
