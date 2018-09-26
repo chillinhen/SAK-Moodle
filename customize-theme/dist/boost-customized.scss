@@ -743,6 +743,38 @@ li.activity.current .activityinstance > a {
     display: inline-block;
   }
 }
+/**** Globals***/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  vertical-align: middle;
+
+  li,
+  ul {
+    list-style: disc;
+  }
+
+  & {
+    padding: 0.5rem 1rem;
+    border-left: 1px solid $page-content;
+  }
+
+  tr:nth-child(even) & {
+    background-color: darken($page-content,5%);
+  }
+
+  tr:nth-child(odd) & {
+    background-color: lighten($page-content,1%);
+  }
+  /*tr &:first-child {
+    font-weight: 700;
+  }*/
+}
 /*** Gen. Layout  - Widths, Margins, Paddings ***/
 .row {
   &#page-content,
@@ -750,6 +782,12 @@ li.activity.current .activityinstance > a {
     max-width: 1170px;
     margin: 0 auto;
   }
+}
+#page-header .logo img {
+  max-height: 100px;
+}
+#page-content {
+  background-color: $page-content;
 }
 /*** Gen. Layout  - Colors, Logo etc ***/
 .card {
@@ -769,142 +807,127 @@ li.activity.current .activityinstance > a {
     }
   }
 }
+
 .coursebox {
   background-color: $trans-white !important;
   padding: 0.5rem;
 }
-#page-header .logo img {
-  max-height: 100px;
-}
-#page-content {
-  background-color: #F2F2F2;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-td,
-th {
-  vertical-align: middle;
-  li,
-  ul {
-    list-style: disc;
-  }
-  &{
-    padding: 0.5rem 1rem;
-    border-left: 1px solid $page-content;
-  }
-  tr:nth-child(even) & {
-      background-color: darken($page-content,5%);
-  }
-  tr:nth-child(odd) & {
-      background-color: lighten($page-content,1%);
-  }
-  /*tr &:first-child {
-    font-weight: 700;
-  }*/
-}
+/**** CONTENT ***/
 /*** Content - Listen ***/
 .subcategories > * {
   padding: 1rem 0.5rem;
   background: rgba($white, .7);
   margin: 1rem 0;
 }
-ol, ul{
-  #region-main &{}
-}
-/**** CONTENT ***/
 
+ol,
+ul {
+  #region-main & {}
+}
 /*** StartSeite Layout Thumbnails ***/
 #frontpage-course-list {
-  display: block;
-  @media screen and (min-width:992px) and (max-width:1365px) {
-    body.pagelayout-frontpage & {
-      @include kacheln;
-    }
+  .frontpage-course-list-enrolled {
+    display: block;
+    @media screen and (min-width:992px) and (max-width:1365px) {
+      body.pagelayout-frontpage & {
+        @include kacheln;
+      }
 
-    body.pagelayout-frontpage.drawer-open-left & {
-      @include list;
-    }
-  }
-  @media screen and (min-width:1365px) {
-    @include kacheln;
-  }
-}
-body.drawer-open-left .frontpage-course-list-enrolled .coursebox.hasThumbnail {
-  flex-direction: row;
-}
-
-.frontpage-course-list-enrolled {
-  .coursebox {
-    margin: 0.75rem 0.5rem;
-
-    .courseimage {
-      order: 1;
-      height: 0;
-      width: 100%;
-      padding: 0 0 66%;
-      margin: 0;
-      position: relative;
-      display: -ms-flexbox;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-
-      img {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        max-width: none;
-        max-height: none;
-        left: 0;
-        top: 0;
+      body.pagelayout-frontpage.drawer-open-left & {
+        @include list;
       }
     }
-
-    .summary {
-      order: 2;
-      width: 100% !important;
-      float: none !important;
-      margin: 0;
+    @media screen and (min-width:1365px) {
+      @include kacheln;
     }
+  }
 
-    .teachers {
-      order: 3;
+  .frontpage-course-list-enrolled {
+    .coursebox {
+      margin: 0.75rem 0.5rem;
+
+      .courseimage {
+        order: 1;
+        height: 0;
+        width: 100%;
+        padding: 0 0 66%;
+        margin: 0;
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        img {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          max-width: none;
+          max-height: none;
+          left: 0;
+          top: 0;
+        }
+      }
+
+      .summary {
+        order: 2;
+        width: 100% !important;
+        float: none !important;
+        margin: 0;
+      }
+
+      .teachers {
+        order: 3;
+      }
+    }
+  }
+
+  .frontpage-course-list-all {
+    .coursebox {
+      margin: 0 0 0.75rem;
+      display: flex;
+      display: -ms-flexbox;
+      align-items: baseline;
+      justify-content: flex-start;
+
+      .info {
+        order: 2;
+      }
+
+      .content {
+        order: 1;
+      }
+
+      .summary,
+      .teachers {
+        display: none;
+      }
     }
   }
 }
+@media screen and (min-width:992px) and (max-width:1365px) {
+  body.drawer-open-left .frontpage-course-list-enrolled .coursebox.hasThumbnail {
+    flex-direction: row;
 
-.frontpage-course-list-all {
-
-  .coursebox {
-    margin: 0 0 0.75rem;
-    display: flex;
-    display: -ms-flexbox;
-    align-items: baseline;
-    justify-content: flex-start;
+    .courseimage {
+      display: none !important;
+    }
 
     .info {
-      order: 2;
+      order: 1 !important;
     }
 
     .content {
-      order: 1;
-    }
-
-    .summary,
-    .teachers {
-      display: none;
+      order: 2 !important;
     }
   }
 }
 /*** Dashboard*** - .pagelayout-mydashboard .card,***/
-
 /** Courses **/
 #intro {
   @include intro-style;
 }
+
 .summary {
   .topics li.section {
     margin-left: 0;
@@ -920,13 +943,16 @@ body.drawer-open-left .frontpage-course-list-enrolled .coursebox.hasThumbnail {
     padding: 1em 0;
   }
 }
+
 .section {
   &.activity {
     padding: 0.5em 0;
   }
+
   &:nth-child(even) {
     background: rgba(255,255,255,.5);
   }
+
   &.label {
     background-color: transparent;
 
@@ -938,13 +964,16 @@ body.drawer-open-left .frontpage-course-list-enrolled .coursebox.hasThumbnail {
       }
     }
   }
+
   .editing &:hover {
     background-color: transparent;
     cursor: pointer;
   }
+
   li.activity {
     padding: 0.2em 0 0.2rem 1rem !important;
   }
+
   &.current {
     border: 0;
     /*    background: lighten($brand-info,15%);*/
@@ -956,20 +985,24 @@ body.drawer-open-left .frontpage-course-list-enrolled .coursebox.hasThumbnail {
       display: none;
     }
   }
+
   .activity.forum.modtype_forum {
     text-align: center;
     background-color: $brand-info;
-    margin:2rem 0;
-    &:hover{opacity: .75;}
+    margin: 2rem 0;
+
+    &:hover {
+      opacity: 0.75;
     }
+  }
 }
+
 .admintable {
   .cell.c5 {
     display: -ms-flexbox;
     display: flex;
   }
 }
-
 /*** Grade Tables ***/
 .path-grade-report-grader #region-main {
   &,
@@ -984,7 +1017,6 @@ body.drawer-open-left .frontpage-course-list-enrolled .coursebox.hasThumbnail {
     -webkit-overflow-scrolling: touch;
   }
 }
-
 .mod-indent-outer {
   padding: 0 !important;
   margin-bottom: 0.25em;
@@ -1022,6 +1054,7 @@ body.drawer-open-left .frontpage-course-list-enrolled .coursebox.hasThumbnail {
 .quizinfo {
   position: relative;
   text-align: left;
+
   &:before {
     content: '';
     border-width: 30px 0 0 25px;
@@ -1049,14 +1082,19 @@ body.drawer-open-left .frontpage-course-list-enrolled .coursebox.hasThumbnail {
     width: 50%;
     text-align: left;
     padding: 0.15rem 1rem;
+
     a {
       color: white;
-      &:hover{text-decoration: none;}
+
+      &:hover {
+        text-decoration: none;
+      }
+
       &:after {
         @include icon-style(white);
         content: '\f05a';
         margin-left: 1rem;
-        float:right;
+        float: right;
       }
     }
   }
@@ -1064,7 +1102,7 @@ body.drawer-open-left .frontpage-course-list-enrolled .coursebox.hasThumbnail {
 
 #page-mod-quiz-view .generalbox#feedback {
   h3 {
-    color:$brand-success;
+    color: $brand-success;
     text-align: center;
     font-size: 1.25rem;
     display: inline-block;

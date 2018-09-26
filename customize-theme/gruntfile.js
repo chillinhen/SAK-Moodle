@@ -9,11 +9,33 @@ module.exports = function(grunt) {
       dest: 'dist/boost-customized.scss',
     },
   },
+  sass: {
+      dist: {
+          options: {
+              style: 'compressed' // Can be nested, compact, compressed, expanded.
+          },
+          files: [{
+              expand: true, // Recursive Output style.
+              cwd: "src/scss/", // The startup directory
+              src: ["**/*.scss"], // Source files
+              dest: "dist/css/", // Destination
+              ext: ".css" // File extension
+          }]
+      }
+  },
   watch: {
-    files: ['src/scss/**/*.scss'],
-    tasks: ['concat']
+
+    concat: {
+      files: ['src/scss/**/*.scss'],
+      tasks: ['concat']
+    },
+    sass: {
+        files: 'src/scss/**/*.{scss,sass}',
+        tasks: ['sass']
+    },
     }
 });
 grunt.loadNpmTasks('grunt-contrib-concat');
-grunt.registerTask('default', ['concat']);
+grunt.loadNpmTasks('grunt-contrib-sass');
+grunt.registerTask('default', ['concat','sass']);
 };
