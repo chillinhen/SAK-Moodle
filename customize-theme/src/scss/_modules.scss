@@ -31,7 +31,6 @@
     }
   }
 }
-
 /** Content Login **/
 #page-login-index {
   #region-main .card-title > h2 {
@@ -42,8 +41,87 @@
     }
   }
 }
+/*** Courses ***/
+.course-content .section-summary .section-summary-activities .activity-count {
+  color: #373a3c !important;
+}
+
+.section li.activity {
+padding: 1em 0 1rem 1rem!important;
+border-bottom: 1px dashed darken($gray-light, 15%) !important;
+a:hover{
+  text-decoration: none;
+  opacity: .5;
+}
+img.activityicon {
+  margin-right: 1rem;
+}
+}
+.mod-indent-1{
+margin-right: .5rem;
++ div .contentwithoutlink {
+  font-size: 1.25rem;
+   &, & b{font-weight:600;}
+}
+}
 /**** Content - Tests ****/
-.logininfo{
-color: white;
-    padding: 0.75rem 0;
+.logininfo {
+  color: white;
+  padding: 0.75rem 0;
+}
+/*** Messages ***/
+.activity.forum.modtype_forum {
+  text-align: center;
+  background-color: $brand-info;
+  margin: 2rem 0;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  .activityinstance > a {
+    color: white;
+    line-height: 1;
+    padding: 0.5rem;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    img.activityicon {
+      display: none;
+    }
+
+    &:before {
+      @include icon-style(currentColor);
+      content: '\f086';
+      margin-right: 2rem;
+    }
+  }
+}
+/*** Quizzes ***/
+#page-mod-quiz-view .generalbox#feedback {
+  margin: 0;
+  width: 100%;
+}
+
+#page-mod-imscp-view .yui-layout-hd h2 {
+  font-size: 1rem !important;
+}
+/**** Quiz Review ***/
+table.quizreviewsummary {
+  th.cell {
+    padding-right: 1em;
+    width: 11em;
+  }
+}
+
+.questionflagsaveform {
+  .que .info {
+    width: 10em;
+  }
+
+  .que .content {
+    margin: 0 0 0 11em;
+  }
 }
