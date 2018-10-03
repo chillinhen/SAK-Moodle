@@ -8,12 +8,12 @@
   [data-region="drawer-toggle"] & {
     border: 0;
   }
-
+  &.active,
   &:active,
   &:focus,
   &:hover {
-    background-color: $light-hover-color;
-    border: 0;
+    background-color: $brand-secondary !important;
+    border-width:1px;
     color: white;
   }
 }

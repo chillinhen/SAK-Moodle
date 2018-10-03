@@ -1,55 +1,62 @@
 /*==================================VARIABLES==========================================*/
 // Colors
 $black: #000 !default;
-$gray-dark: #373a3c !default;
-$gray: #55595c !default;
-$gray-light: #d9e1e6 !default;
-$gray-lighter: #e9eef1 !default;
-$gray-lightest: #f7f7f9 !default;
+$gray-dark: #323436 !default;
+$gray: #6D7275 !default;
+$gray-light: #A7AFB5  !default;
+$gray-lighter: #CBD4DB !default;
+$gray-lightest: #E2EDF5 !default;
 $white: #fff !default;
 $trans-white:rgba(255,255,255,.75);
 $brand-primary: #2466A6 !default;
-$brand-secondary: #333 !default;
-$brand-info: #7EA0C5;
-$brand-success: #77b300 !default;
-$brand-warning: #ff8800 !default;
-$brand-danger: #ff4136 !default;
+$brand-secondary: #5D8AB5 !default;
+$brand-info: #db9959;
+$brand-success: #28803C !default;
+$brand-warning: #DFF228 !default;
+$brand-danger: #B34039 !default;
 $brand-inverse: $gray-dark !default;
-$navbar-height: 50px !default; // Spacing
-$spacer: 1rem !default;
-$spacer-x: $spacer !default;
-$spacer-y: $spacer !default;
-$border-width: 1px !default; // Body
 $border-color: $gray-lighter;
 $body-bg: #000;
 $page-content:#f2f2f2;
 $body-color: #3a3a3a !default; // Typography
-$font-family-sans-serif: "Ubuntu", Arial, sans-serif !default;
-$headings-font-family-sans-serif: "Titillium Web", sans-serif;
-$font-size-root: 14px !default;
-$font-size-height: 150% !default;
-$paragraph-margin: $font-size-root;
+$blocks-color:#e5e5e4;
 $text-color: $gray-dark;
 $heading-text-color: $brand-primary;
 $body-text-color:$text-color;
-$text-muted-color: lighten($text-color,25%);
+$text-muted-color: lighten($text-color,5%);
 $light-hover-color: lighten($brand-primary,5%);
-$dark-hover-color: darken($brand-primary,10%); /* Margins & Paddings */
-$outer-grid: 2 * $font-size-root;
-$vertical-spacing: 2 * $font-size-root;
-$card-padding: 1rem; // Tables
+$dark-hover-color: darken($brand-primary,10%);
 $table-bg: transparent !default;
 $table-bg-accent: #fafafa !default;
-$table-bg-hover: lighten($brand-primary, 55%) !default;
+$table-bg-hover: lighten($brand-primary, 15%) !default;
 $table-bg-active: $table-bg-hover !default;
 $table-border-color: #f4f4f4 !default; // Dropdowns
 $dropdown-border-color: #e2e2e2 !default;
 $dropdown-link-color: $body-color; // Navbar
 $navbar-light-color: rgba(0, 0, 0, .535) !default;
+$card-border-color: rgba(238, 238, 238, 1) !default; // Breadcrumbs
+// Spacing
+$navbar-height: 50px !default;
+$spacer: 1rem !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+$border-width: 1px !default; // Body
+
+$font-family-sans-serif: "Ubuntu", Arial, sans-serif !default;
+$headings-font-family-sans-serif: "Titillium Web", sans-serif;
+$font-size-root: 14px !default;
+$font-size-height: 150% !default;
+$paragraph-margin: $font-size-root;
+
+ /* Margins & Paddings */
+$outer-grid: 2 * $font-size-root;
+$vertical-spacing: 2 * $font-size-root;
+$card-padding: 1rem; // Tables
+
 $navbar-light-hover-color: $brand-primary !default;
 $navbar-light-active-color: $brand-primary !default; // Cards
 $card-border-radius: 0 !default;
-$card-border-color: rgba(238, 238, 238, 1) !default; // Breadcrumbs
+
 $breadcrumb-bg: transparent !default;
 $breadcrumb-padding-x: 0 !default;
 $breadcrumb-divider: "/" !default;
@@ -183,7 +190,7 @@ body {
   font-size: $font-size-root;
   font-weight: 400;
   line-height: $font-size-height;
-  background: $body-bg url(http://www.spraachen.org/wp-content/uploads/2013/12/weltkarte.png) center top no-repeat/ cover;
+  background: $body-bg url(http://www.spraachen.org/wp-content/uploads/2013/12/weltkarte.png) center top no-repeat/ 100% auto;
   background-attachment: scroll;
   color: $body-color;
 }
@@ -250,11 +257,12 @@ a {
     color: $gray-dark !important;
   }
 }
+.text-muted,
 .dimmed_text {
   &,
   & *,
   &a {
-    color: $body-color;
+    color: $text-muted-color !important;
   };
 }
 /*** Buttons ***/
@@ -267,12 +275,12 @@ a {
   [data-region="drawer-toggle"] & {
     border: 0;
   }
-
+  &.active,
   &:active,
   &:focus,
   &:hover {
-    background-color: $light-hover-color;
-    border: 0;
+    background-color: $brand-secondary !important;
+    border-width:1px;
     color: white;
   }
 }
@@ -647,6 +655,15 @@ li.activity.current .activityinstance > a {
     color: #000 !important;
   }
 }
+/*** Default. paging ***/
+.page-link{
+  .page-item.disabled &{
+    &, &:focus,&.active, &:hover{background-color: $brand-secondary;}
+  }
+  .page-item.active &{
+    &, &:focus,&.active, &:hover{background-color: $brand-primary;}
+  }
+}
 /*** Course Paging ***/
 .section-navigation {
   width: 100%;
@@ -775,7 +792,7 @@ th {
     font-weight: 700;
   }*/
 }
-/*** Gen. Layout  - Widths, Margins, Paddings ***/
+/*** Def. Layout  - Widths, Margins, Paddings ***/
 .row {
   &#page-content,
   &#page-header {
@@ -795,7 +812,7 @@ th {
   border: 0;
 
   section[data-region="blocks-column"] {
-    background-color: #e5e5e4;
+    background-color: $blocks-color;
   }
 
   #page-header & {
@@ -803,7 +820,7 @@ th {
 
     &,
     & * {
-      color: white;
+      color: $white;
     }
   }
 }
@@ -812,6 +829,33 @@ th {
   background-color: $trans-white !important;
   padding: 0.5rem;
 }
+
+.alert-info,
+#page-admin-index .releasenoteslink,
+#adminsettings .form-overridden,
+.que .formulation{
+  background-color:lighten($brand-secondary, 25%);
+}
+.alert-warning,
+#page-admin-index .adminwarning,
+.uninstalldeleteconfirmexternal,
+.que .outcome,
+.que .comment{
+  background-color: $trans-white;
+  border-color: $gray-lighter;
+  color:$text-color;
+}
+.path-mod-quiz #mod_quiz_navblock .qnbutton.partiallycorrect .trafficlight{
+  background-color: $brand-info;
+}
+.path-mod-quiz #mod_quiz_navblock .qnbutton.notanswered .trafficlight,
+.path-mod-quiz #mod_quiz_navblock .qnbutton.incorrect .trafficlight{
+  background-color: $brand-danger;
+}
+.path-mod-quiz #mod_quiz_navblock .qnbutton.correct .trafficlight{
+  background-color: $brand-success;
+}
+
 /**** CONTENT ***/
 /*** Content - Listen ***/
 .subcategories > * {
@@ -823,6 +867,13 @@ th {
 ol,
 ul {
   #region-main & {}
+}
+#page-footer *{color:white !important;}
+/*** Content - Forms ***/
+.form-group.row{
+  [class*="col-"]:last-child input[type="submit"]{
+    float:right;
+  }
 }
 /*** StartSeite Layout Thumbnails ***/
 #frontpage-course-list {
@@ -982,7 +1033,8 @@ ul {
     margin: 0 -1rem;
 
     &:before {
-      display: none;
+      left:0;
+      border-width:0 0 0 3px;
     }
   }
 
@@ -1182,22 +1234,30 @@ ul {
 }
 
 .section li.activity {
-padding: 1em 0 1rem 1rem!important;
-border-bottom: 1px dashed darken($gray-light, 15%) !important;
-a:hover{
-  text-decoration: none;
-  opacity: .5;
+  padding: 1em 0 1rem 1rem!important !important;
+  border-bottom: 1px dashed darken($gray-light, 15%) !important;
+
+  a:hover {
+    text-decoration: none;
+    opacity: 0.5;
+  }
+
+  img.activityicon {
+    margin-right: 1rem;
+  }
 }
-img.activityicon {
-  margin-right: 1rem;
-}
-}
-.mod-indent-1{
-margin-right: .5rem;
-+ div .contentwithoutlink {
-  font-size: 1.25rem;
-   &, & b{font-weight:600;}
-}
+
+.mod-indent-1 {
+  margin-right: 0.5rem;
+
+  + div .contentwithoutlink {
+    font-size: 1.25rem;
+
+    &,
+    & b {
+      font-weight: 600;
+    }
+  }
 }
 /**** Content - Tests ****/
 .logininfo {
@@ -1259,4 +1319,8 @@ table.quizreviewsummary {
   .que .content {
     margin: 0 0 0 11em;
   }
+}
+/*** Modals, Popups **/
+.form-control-static{
+  padding-right: 1rem;
 }

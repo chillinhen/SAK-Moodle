@@ -47,22 +47,30 @@
 }
 
 .section li.activity {
-padding: 1em 0 1rem 1rem!important;
-border-bottom: 1px dashed darken($gray-light, 15%) !important;
-a:hover{
-  text-decoration: none;
-  opacity: .5;
+  padding: 1em 0 1rem 1rem!important !important;
+  border-bottom: 1px dashed darken($gray-light, 15%) !important;
+
+  a:hover {
+    text-decoration: none;
+    opacity: 0.5;
+  }
+
+  img.activityicon {
+    margin-right: 1rem;
+  }
 }
-img.activityicon {
-  margin-right: 1rem;
-}
-}
-.mod-indent-1{
-margin-right: .5rem;
-+ div .contentwithoutlink {
-  font-size: 1.25rem;
-   &, & b{font-weight:600;}
-}
+
+.mod-indent-1 {
+  margin-right: 0.5rem;
+
+  + div .contentwithoutlink {
+    font-size: 1.25rem;
+
+    &,
+    & b {
+      font-weight: 600;
+    }
+  }
 }
 /**** Content - Tests ****/
 .logininfo {
@@ -124,4 +132,8 @@ table.quizreviewsummary {
   .que .content {
     margin: 0 0 0 11em;
   }
+}
+/*** Modals, Popups **/
+.form-control-static{
+  padding-right: 1rem;
 }

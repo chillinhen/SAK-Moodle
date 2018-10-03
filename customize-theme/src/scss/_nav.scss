@@ -77,6 +77,15 @@
     color: #000 !important;
   }
 }
+/*** Default. paging ***/
+.page-link{
+  .page-item.disabled &{
+    &, &:focus,&.active, &:hover{background-color: $brand-secondary;}
+  }
+  .page-item.active &{
+    &, &:focus,&.active, &:hover{background-color: $brand-primary;}
+  }
+}
 /*** Course Paging ***/
 .section-navigation {
   width: 100%;
