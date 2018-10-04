@@ -2,29 +2,5 @@
 /* Margins & Paddings */
 /*==================================MIXINS==========================================*/
 /** Dashboard ***/
-.alert-info,
-#page-admin-index .releasenoteslink,
-#adminsettings .form-overridden,
-.que .formulation {
-  background-color: #b5c9dd; }
-
-.alert-warning,
-#page-admin-index .adminwarning,
-.uninstalldeleteconfirmexternal,
-.que .outcome,
-.que .comment {
-  background-color: rgba(255, 255, 255, 0.75);
-  border-color: #CBD4DB;
-  color: #323436; }
-
-.path-mod-quiz #mod_quiz_navblock .qnbutton.partiallycorrect .trafficlight {
-  background-color: #db9959; }
-
-.path-mod-quiz #mod_quiz_navblock .qnbutton.notanswered .trafficlight,
-.path-mod-quiz #mod_quiz_navblock .qnbutton.incorrect .trafficlight {
-  background-color: #B34039; }
-
-.path-mod-quiz #mod_quiz_navblock .qnbutton.correct .trafficlight {
-  background-color: #28803C; }
 
 /*# sourceMappingURL=snippets.css.map */

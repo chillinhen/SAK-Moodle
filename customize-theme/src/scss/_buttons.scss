@@ -34,7 +34,7 @@ svg {
 
 .numberofcourse {
   background: $brand-primary;
-  color: $white;
+  color: $white !important;
   display: inline-flex;
   padding: 0.25rem;
   height: 1.2rem;
@@ -64,4 +64,15 @@ svg {
 }
 .region_main_settings_menu_proxy {
   background-color: transparent;
+}
+
+.ical-link{
+  @extend .btn;
+    @extend .btn-default;
+  background-color: #f60 !important;
+  border-color:darken(#f60, 25%);
+  font-size: 1rem;
+    font-weight: 300;
+    background-color: #f60;
+    padding: .5rem 1rem;
 }
