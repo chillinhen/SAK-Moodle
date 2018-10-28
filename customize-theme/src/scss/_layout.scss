@@ -1,10 +1,14 @@
+body {
+  background:$body-bg url("http://www.spraachen.org/wp-content/uploads/2013/12/weltkarte.png")  center top no-repeat;
+  background-size: 100% auto;
+  background-attachment: scroll;
+}
 /**** Globals***/
 table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 td,
 th {
   vertical-align: middle;
@@ -227,18 +231,6 @@ ul {
 
   li.activity {
     padding: 0.2em 0 0.2rem 1rem !important;
-  }
-
-  &.current {
-    border: 0;
-    /*    background: lighten($brand-info,15%);*/
-    background: rgba(255,255,255,.75);
-    padding: 1em;
-    margin: 0 -1rem;
-
-    &:before {
-      display: none;
-    }
   }
 
   .activity.forum.modtype_forum {

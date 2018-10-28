@@ -183,8 +183,6 @@ body {
   font-size: $font-size-root;
   font-weight: 400;
   line-height: $font-size-height;
-  background: $body-bg url(http://www.spraachen.org/wp-content/uploads/2013/12/weltkarte.png) center top no-repeat/ cover;
-  background-attachment: scroll;
   color: $body-color;
 }
 /*** Headlines ***/
@@ -743,13 +741,18 @@ li.activity.current .activityinstance > a {
     display: inline-block;
   }
 }
-/**** Globals***/
+body {
+  background:$body-bg url("http://www.spraachen.org/wp-content/uploads/2013/12/weltkarte.png")  center top no-repeat;
+  background-size: 100% auto;
+  background-attachment: scroll;
+}
+/**** G no-repeat / 100% auto;
+background-size: lobals***/
 table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 td,
 th {
   vertical-align: middle;
@@ -974,17 +977,12 @@ ul {
     padding: 0.2em 0 0.2rem 1rem !important;
   }
 
-  &.current {
-    border: 0;
-    /*    background: lighten($brand-info,15%);*/
-    background: rgba(255,255,255,.75);
-    padding: 1em;
-    margin: 0 -1rem;
+  /*&.current {
 
     &:before {
-      display: none;
+    //  display: none;
     }
-  }
+  }*/
 
   .activity.forum.modtype_forum {
     text-align: center;
@@ -1182,23 +1180,24 @@ ul {
 }
 
 .section li.activity {
-padding: 1em 0 1rem 1rem!important;
-border-bottom: 1px dashed darken($gray-light, 15%) !important;
-a:hover{
-  text-decoration: none;
-  opacity: .5;
+  padding: 1em 0 1rem 1rem!important;
+  border-bottom: 1px dashed darken($gray-light, 15%) !important;
+  &:last-child{border:0;}
+  a:hover{
+    text-decoration: none;
+    opacity: .5;
+  }
+  img.activityicon {
+    margin-right: 1rem;
+  }
 }
-img.activityicon {
-  margin-right: 1rem;
-}
-}
-.mod-indent-1{
+/*.mod-indent-1{
 margin-right: .5rem;
-+ div .contentwithoutlink {
+}
+.contentwithoutlink {
   font-size: 1.25rem;
    &, & b{font-weight:600;}
-}
-}
+}*/
 /**** Content - Tests ****/
 .logininfo {
   color: white;
@@ -1259,4 +1258,8 @@ table.quizreviewsummary {
   .que .content {
     margin: 0 0 0 11em;
   }
+}
+/*** Dialog Boxes ***/
+.moodle-dialogue-base legend{
+  padding: 1rem;
 }

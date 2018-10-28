@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "../../src/scss/test.css",
+	"sources": [
+		"../../src/scss/test.scss"
+	],
+	"sourcesContent": [
+		".editing .section .activity.action-menu-shown {\r\n    background-color: #fafafa;\r\n}\r\n\r\n.course-content ul.topics li.section .summary,\r\n.course-content ul.weeks li.section .summary,\r\n.course-content ul.topics li.section .content>.availabilityinfo,\r\n.course-content ul.weeks li.section .content>.availabilityinfo\r\n.section .activity .availabilityinfo{\r\n    margin-left:0;\r\n    border:1px dashed red;\r\n}\r\n\r\n.course-content .current::before{\r\n    display: none;\r\n}\r\n.course-content .section-summary .section-title{\r\n    border-bottom:1px solid #ccc;\r\n    padding-bottom:.25rem;\r\n}\r\n.tag.tag-info{float:right;}\r\n\r\n\r\nli.activity.resource{\r\n    border:1px dashed red;\r\n}\r\n/******* *******/\r\n"
+	],
+	"mappings": ";AAAA,AAA2B,QAAnB,CAAC,QAAQ,CAAC,SAAS,AAAA,kBAAkB,CAAC;EAC1C,gBAAgB,EAAE,OAAQ;CAC7B;;;AAED,AAAqC,eAAtB,CAAC,EAAE,AAAA,OAAO,CAAC,EAAE,AAAA,QAAQ,CAAC,QAAQ;AAC7C,AAAoC,eAArB,CAAC,EAAE,AAAA,MAAM,CAAC,EAAE,AAAA,QAAQ,CAAC,QAAQ;AAC5C,AAA8C,eAA/B,CAAC,EAAE,AAAA,OAAO,CAAC,EAAE,AAAA,QAAQ,CAAC,QAAQ,GAAC,iBAAiB;AAC/D,AACmB,eADJ,CAAC,EAAE,AAAA,MAAM,CAAC,EAAE,AAAA,QAAQ,CAAC,QAAQ,GAAC,iBAAiB;AAC9D,QAAQ,CAAC,SAAS,CAAC,iBAAiB,CAAA;EAChC,WAAW,EAAC,CAAE;EACd,MAAM,EAAC,cAAe;CACzB;;;AAED,AAAwB,eAAT,CAAC,QAAQ,AAAA,QAAQ,CAAA;EAC5B,OAAO,EAAE,IAAK;CACjB;;;AACD,AAAiC,eAAlB,CAAC,gBAAgB,CAAC,cAAc,CAAA;EAC3C,aAAa,EAAC,cAAe;EAC7B,cAAc,EAAC,MAAO;CACzB;;;AACD,AAAI,IAAA,AAAA,SAAS,CAAA;EAAC,KAAK,EAAC,KAAM;CAAG;;;AAG7B,AAAW,EAAT,AAAA,SAAS,AAAA,SAAS,CAAA;EAChB,MAAM,EAAC,cAAe;CACzB;;AACD,iBAAiB",
+	"names": []
+}

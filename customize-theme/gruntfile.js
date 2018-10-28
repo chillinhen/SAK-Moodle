@@ -12,7 +12,7 @@ module.exports = function(grunt) {
   sass: {
       dist: {
           options: {
-              style: 'compressed' // Can be nested, compact, compressed, expanded.
+              style: 'expanded' // Can be nested, compact, compressed, expanded.
           },
           files: [{
               expand: true, // Recursive Output style.

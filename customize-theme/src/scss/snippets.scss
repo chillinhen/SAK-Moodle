@@ -1,1 +1,5 @@
-
+.form-group.row{
+  [class*="col-"]:last-child input[type="submit"]{
+    float:right;
+  }
+}

@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "../../src/scss/moodle.css",
+	"sources": [
+		"../../src/scss/moodle.scss"
+	],
+	"sourcesContent": [
+		"/*\nTo change this license header, choose License Headers in Project Properties.\nTo change this template file, choose Tools | Templates\nand open the template in the editor.\n*/\n/* \n    Created on : 02.08.2018, 12:10:42\n    Author     : Claudia\n*/\n\n"
+	],
+	"mappings": "AAAA;;;;EAIE;AACF;;;EAGE",
+	"names": []
+}
