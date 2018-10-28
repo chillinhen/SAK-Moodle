@@ -76,7 +76,8 @@ th {
 #page-admin-index .releasenoteslink,
 #adminsettings .form-overridden,
 .que .formulation{
-  background-color:lighten($brand-secondary, 25%);
+  background-color:lighten($brand-secondary, 10%);
+  color:white;
 }
 .alert-warning,
 #page-admin-index .adminwarning,
@@ -86,6 +87,14 @@ th {
   background-color: $trans-white;
   border-color: $gray-lighter;
   color:$text-color;
+}
+.path-mod-quiz #mod_quiz_navblock .qnbutton{
+color:$text-color !important;
+  &:hover{
+    background-color: $brand-secondary;
+    color:white  !important;
+    text-decoration: none;
+  }
 }
 .path-mod-quiz #mod_quiz_navblock .qnbutton.partiallycorrect .trafficlight{
   background-color: $brand-info;
@@ -248,13 +257,15 @@ ul {
 
   &.label {
     background-color: transparent;
-
     p {
       font-weight: 600;
 
       &:first-child {
         margin-top: 2em;
       }
+    }
+    &:hover{
+      cursor: none;
     }
   }
 
@@ -336,9 +347,9 @@ ul {
     background-color: transparent;
   }
 
-  &:hover {
+/*  &:hover {
     cursor: pointer;
-  }
+  }*/
 
   .activity & {
     float: right;

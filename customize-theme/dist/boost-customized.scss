@@ -190,11 +190,6 @@ body {
   font-size: $font-size-root;
   font-weight: 400;
   line-height: $font-size-height;
-<<<<<<< HEAD
-=======
-  background: $body-bg url(http://www.spraachen.org/wp-content/uploads/2013/12/weltkarte.png) center top no-repeat/ 100% auto;
-  background-attachment: scroll;
->>>>>>> 4ea5b55e3294122c2ffe099f464fed4f0800769a
   color: $body-color;
 }
 /*** Headlines ***/
@@ -426,10 +421,19 @@ svg {
 }
 
 .card-title {
+  display:flex;
+  display: -ms-flex;
   [data-block] &:before {
     @include icon-style(#000);
   }
-
+  [data-block="html"] &:before {
+    content: " ";
+    display: inline-block;
+    min-width: 24px;
+  }
+  [data-block="myprofile"] &:before {
+    content: "\f2bd";
+  }
   [data-block="calendar_month"] &:before {
     content: "\f073";
   }
@@ -554,8 +558,8 @@ svg {
   content: "\f07c" !important;
 }
 
-li.activity.current .activityinstance > a {
-  color: white;
+li.activity.current .activityinstance  a {
+  color: white !important;
   line-height: 1;
   padding: 0.5rem;
 
@@ -779,8 +783,7 @@ body {
   background-size: 100% auto;
   background-attachment: scroll;
 }
-/**** G no-repeat / 100% auto;
-background-size: lobals***/
+/**** Globals***/
 table {
   width: 100%;
   border-collapse: collapse;
@@ -853,7 +856,8 @@ th {
 #page-admin-index .releasenoteslink,
 #adminsettings .form-overridden,
 .que .formulation{
-  background-color:lighten($brand-secondary, 25%);
+  background-color:lighten($brand-secondary, 10%);
+  color:white;
 }
 .alert-warning,
 #page-admin-index .adminwarning,
@@ -863,6 +867,14 @@ th {
   background-color: $trans-white;
   border-color: $gray-lighter;
   color:$text-color;
+}
+.path-mod-quiz #mod_quiz_navblock .qnbutton{
+color:$text-color !important;
+  &:hover{
+    background-color: $brand-secondary;
+    color:white  !important;
+    text-decoration: none;
+  }
 }
 .path-mod-quiz #mod_quiz_navblock .qnbutton.partiallycorrect .trafficlight{
   background-color: $brand-info;
@@ -1025,13 +1037,15 @@ ul {
 
   &.label {
     background-color: transparent;
-
     p {
       font-weight: 600;
 
       &:first-child {
         margin-top: 2em;
       }
+    }
+    &:hover{
+      cursor: none;
     }
   }
 
@@ -1043,18 +1057,6 @@ ul {
   li.activity {
     padding: 0.2em 0 0.2rem 1rem !important;
   }
-
-  /*&.current {
-
-    &:before {
-<<<<<<< HEAD
-    //  display: none;
-=======
-      left:0;
-      border-width:0 0 0 3px;
->>>>>>> 4ea5b55e3294122c2ffe099f464fed4f0800769a
-    }
-  }*/
 
   .activity.forum.modtype_forum {
     text-align: center;
@@ -1125,9 +1127,9 @@ ul {
     background-color: transparent;
   }
 
-  &:hover {
+/*  &:hover {
     cursor: pointer;
-  }
+  }*/
 
   .activity & {
     float: right;
@@ -1252,7 +1254,6 @@ ul {
 }
 
 .section li.activity {
-<<<<<<< HEAD
   padding: 1em 0 1rem 1rem!important;
   border-bottom: 1px dashed darken($gray-light, 15%) !important;
   &:last-child{border:0;}
@@ -1260,21 +1261,10 @@ ul {
     text-decoration: none;
     opacity: .5;
   }
-=======
-  padding: 1em 0 1rem 1rem!important !important;
-  border-bottom: 1px dashed darken($gray-light, 15%) !important;
-
-  a:hover {
-    text-decoration: none;
-    opacity: 0.5;
-  }
-
->>>>>>> 4ea5b55e3294122c2ffe099f464fed4f0800769a
   img.activityicon {
     margin-right: 1rem;
   }
 }
-<<<<<<< HEAD
 /*.mod-indent-1{
 margin-right: .5rem;
 }
@@ -1282,21 +1272,6 @@ margin-right: .5rem;
   font-size: 1.25rem;
    &, & b{font-weight:600;}
 }*/
-=======
-
-.mod-indent-1 {
-  margin-right: 0.5rem;
-
-  + div .contentwithoutlink {
-    font-size: 1.25rem;
-
-    &,
-    & b {
-      font-weight: 600;
-    }
-  }
-}
->>>>>>> 4ea5b55e3294122c2ffe099f464fed4f0800769a
 /**** Content - Tests ****/
 .logininfo {
   color: white;
@@ -1358,13 +1333,7 @@ table.quizreviewsummary {
     margin: 0 0 0 11em;
   }
 }
-<<<<<<< HEAD
 /*** Dialog Boxes ***/
 .moodle-dialogue-base legend{
   padding: 1rem;
-=======
-/*** Modals, Popups **/
-.form-control-static{
-  padding-right: 1rem;
->>>>>>> 4ea5b55e3294122c2ffe099f464fed4f0800769a
 }

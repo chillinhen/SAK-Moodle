@@ -1,6 +1,5 @@
-/* line 2, C:/MAMP/htdocs/SAK-Moodle/customize-theme/src/scss/snippets.scss */
 .form-group.row [class*="col-"]:last-child input[type="submit"] {
   float: right;
 }
 
-/*# sourceMappingURL=../../dist/css/snippets.map */
+/*# sourceMappingURL=snippets.css.map */

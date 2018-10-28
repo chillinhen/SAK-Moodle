@@ -78,10 +78,19 @@
 }
 
 .card-title {
+  display:flex;
+  display: -ms-flex;
   [data-block] &:before {
     @include icon-style(#000);
   }
-
+  [data-block="html"] &:before {
+    content: " ";
+    display: inline-block;
+    min-width: 24px;
+  }
+  [data-block="myprofile"] &:before {
+    content: "\f2bd";
+  }
   [data-block="calendar_month"] &:before {
     content: "\f073";
   }
@@ -206,8 +215,8 @@
   content: "\f07c" !important;
 }
 
-li.activity.current .activityinstance > a {
-  color: white;
+li.activity.current .activityinstance  a {
+  color: white !important;
   line-height: 1;
   padding: 0.5rem;
 

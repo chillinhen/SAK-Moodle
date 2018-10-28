@@ -1,9 +1,7 @@
-/* line 1, C:/MAMP/htdocs/SAK-Moodle/customize-theme/src/scss/test.scss */
 .editing .section .activity.action-menu-shown {
   background-color: #fafafa;
 }
 
-/* line 5, C:/MAMP/htdocs/SAK-Moodle/customize-theme/src/scss/test.scss */
 .course-content ul.topics li.section .summary,
 .course-content ul.weeks li.section .summary,
 .course-content ul.topics li.section .content > .availabilityinfo,
@@ -13,22 +11,19 @@
   border: 1px dashed red;
 }
 
-/* line 14, C:/MAMP/htdocs/SAK-Moodle/customize-theme/src/scss/test.scss */
 .course-content .section-summary .section-title {
   border-bottom: 1px solid #ccc;
   padding-bottom: .25rem;
 }
 
-/* line 18, C:/MAMP/htdocs/SAK-Moodle/customize-theme/src/scss/test.scss */
 .tag.tag-info {
   float: right;
 }
 
-/* line 21, C:/MAMP/htdocs/SAK-Moodle/customize-theme/src/scss/test.scss */
 li.activity.resource {
   border: 1px dashed red;
 }
 
 /******* *******/
 
-/*# sourceMappingURL=../../dist/css/test.map */
+/*# sourceMappingURL=test.css.map */
