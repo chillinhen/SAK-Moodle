@@ -5,8 +5,8 @@
 		"../../src/scss/snippets.scss"
 	],
 	"sourcesContent": [
-		"\r\n"
+		".form-group.row{\r\n  [class*=\"col-\"]:last-child input[type=\"submit\"]{\r\n    float:right;\r\n  }\r\n}\r\n"
 	],
-	"mappings": "",
+	"mappings": ";AAAA,AACgD,WADrC,AAAA,IAAI,EACb,AAAA,KAAC,EAAO,MAAM,AAAb,CAAc,WAAW,CAAC,KAAK,CAAA,AAAA,IAAC,CAAK,QAAQ,AAAb,EAAc;EAC7C,KAAK,EAAC,KAAM;CACb",
 	"names": []
 }

@@ -1,62 +1,55 @@
 /*==================================VARIABLES==========================================*/
 // Colors
 $black: #000 !default;
-$gray-dark: #323436 !default;
-$gray: #6D7275 !default;
-$gray-light: #A7AFB5  !default;
-$gray-lighter: #CBD4DB !default;
-$gray-lightest: #E2EDF5 !default;
+$gray-dark: #333 !default;
+$gray: #55595c !default;
+$gray-light: #d9e1e6 !default;
+$gray-lighter: #e9eef1 !default;
+$gray-lightest: #f7f7f9 !default;
 $white: #fff !default;
 $trans-white:rgba(255,255,255,.75);
 $brand-primary: #2466A6 !default;
 $brand-secondary: #5D8AB5 !default;
-$brand-info: #db9959;
+$brand-info: #B5B362;
 $brand-success: #28803C !default;
 $brand-warning: #DFF228 !default;
 $brand-danger: #B34039 !default;
 $brand-inverse: $gray-dark !default;
-$border-color: $gray-lighter;
-$body-bg: #000;
-$page-content:#f2f2f2;
-$body-color: #3a3a3a !default; // Typography
-$blocks-color:#e5e5e4;
-$text-color: $gray-dark;
-$heading-text-color: $brand-primary;
-$body-text-color:$text-color;
-$text-muted-color: lighten($text-color,5%);
-$light-hover-color: lighten($brand-primary,5%);
-$dark-hover-color: darken($brand-primary,10%);
-$table-bg: transparent !default;
-$table-bg-accent: #fafafa !default;
-$table-bg-hover: lighten($brand-primary, 15%) !default;
-$table-bg-active: $table-bg-hover !default;
-$table-border-color: #f4f4f4 !default; // Dropdowns
-$dropdown-border-color: #e2e2e2 !default;
-$dropdown-link-color: $body-color; // Navbar
-$navbar-light-color: rgba(0, 0, 0, .535) !default;
-$card-border-color: rgba(238, 238, 238, 1) !default; // Breadcrumbs
-// Spacing
-$navbar-height: 50px !default;
+$navbar-height: 50px !default; // Spacing
 $spacer: 1rem !default;
 $spacer-x: $spacer !default;
 $spacer-y: $spacer !default;
 $border-width: 1px !default; // Body
-
+$border-color: $gray-lighter;
+$body-bg: #000;
+$page-content:#f2f2f2;
+$body-color: #3a3a3a !default; // Typography
 $font-family-sans-serif: "Ubuntu", Arial, sans-serif !default;
 $headings-font-family-sans-serif: "Titillium Web", sans-serif;
 $font-size-root: 14px !default;
 $font-size-height: 150% !default;
 $paragraph-margin: $font-size-root;
-
- /* Margins & Paddings */
+$text-color: $gray-dark;
+$heading-text-color: $brand-primary;
+$body-text-color:$text-color;
+$text-muted-color: lighten($text-color,5%);
+$light-hover-color: lighten($brand-primary,5%);
+$dark-hover-color: darken($brand-primary,10%); /* Margins & Paddings */
 $outer-grid: 2 * $font-size-root;
 $vertical-spacing: 2 * $font-size-root;
 $card-padding: 1rem; // Tables
-
+$table-bg: transparent !default;
+$table-bg-accent: #fafafa !default;
+$table-bg-hover: lighten($brand-primary, 55%) !default;
+$table-bg-active: $table-bg-hover !default;
+$table-border-color: #f4f4f4 !default; // Dropdowns
+$dropdown-border-color: #e2e2e2 !default;
+$dropdown-link-color: $body-color; // Navbar
+$navbar-light-color: rgba(0, 0, 0, .535) !default;
 $navbar-light-hover-color: $brand-primary !default;
 $navbar-light-active-color: $brand-primary !default; // Cards
 $card-border-radius: 0 !default;
-
+$card-border-color: rgba(238, 238, 238, 1) !default; // Breadcrumbs
 $breadcrumb-bg: transparent !default;
 $breadcrumb-padding-x: 0 !default;
 $breadcrumb-divider: "/" !default;

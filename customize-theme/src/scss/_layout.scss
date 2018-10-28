@@ -34,7 +34,7 @@ th {
     font-weight: 700;
   }*/
 }
-/*** Gen. Layout  - Widths, Margins, Paddings ***/
+/*** Def. Layout  - Widths, Margins, Paddings ***/
 .row {
   &#page-content,
   &#page-header {
@@ -54,7 +54,7 @@ th {
   border: 0;
 
   section[data-region="blocks-column"] {
-    background-color: #e5e5e4;
+    background-color: $blocks-color;
   }
 
   #page-header & {
@@ -62,7 +62,7 @@ th {
 
     &,
     & * {
-      color: white;
+      color: $white;
     }
   }
 }
@@ -71,6 +71,33 @@ th {
   background-color: $trans-white !important;
   padding: 0.5rem;
 }
+
+.alert-info,
+#page-admin-index .releasenoteslink,
+#adminsettings .form-overridden,
+.que .formulation{
+  background-color:lighten($brand-secondary, 25%);
+}
+.alert-warning,
+#page-admin-index .adminwarning,
+.uninstalldeleteconfirmexternal,
+.que .outcome,
+.que .comment{
+  background-color: $trans-white;
+  border-color: $gray-lighter;
+  color:$text-color;
+}
+.path-mod-quiz #mod_quiz_navblock .qnbutton.partiallycorrect .trafficlight{
+  background-color: $brand-info;
+}
+.path-mod-quiz #mod_quiz_navblock .qnbutton.notanswered .trafficlight,
+.path-mod-quiz #mod_quiz_navblock .qnbutton.incorrect .trafficlight{
+  background-color: $brand-danger;
+}
+.path-mod-quiz #mod_quiz_navblock .qnbutton.correct .trafficlight{
+  background-color: $brand-success;
+}
+
 /**** CONTENT ***/
 /*** Content - Listen ***/
 .subcategories > * {
@@ -82,6 +109,13 @@ th {
 ol,
 ul {
   #region-main & {}
+}
+#page-footer *{color:white !important;}
+/*** Content - Forms ***/
+.form-group.row{
+  [class*="col-"]:last-child input[type="submit"]{
+    float:right;
+  }
 }
 /*** StartSeite Layout Thumbnails ***/
 #frontpage-course-list {

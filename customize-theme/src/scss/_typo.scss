@@ -74,10 +74,11 @@ a {
     color: $gray-dark !important;
   }
 }
+.text-muted,
 .dimmed_text {
   &,
   & *,
   &a {
-    color: $body-color;
+    color: $text-muted-color !important;
   };
 }
